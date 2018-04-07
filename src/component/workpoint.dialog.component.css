@@ -1,0 +1,13 @@
+
+ form {
+    width: 650px;
+    height: 180px;
+    margin: auto;
+    position: relative;
+  }
+
+  input {
+    width:100%;
+    height: 25px;
+  }
+ 

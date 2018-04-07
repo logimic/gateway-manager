@@ -1,0 +1,4 @@
+G91   // souradnice jsou zadavany relativne
+G1 Z 50
+G1 Z -100
+G1 Z 50

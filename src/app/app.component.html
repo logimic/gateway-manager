@@ -1,0 +1,17 @@
+
+<div *ngIf="!isReady()" class="loader-wrapper">
+    <div class="like-table">
+    <span><div class="loader"></div><br/>Gateway loading..</span>
+    </div>
+</div>
+
+<div *ngIf="isReady()">
+    <app-gateway-status-component [onlineStatus]="this.model.status.onlineStatus"></app-gateway-status-component>    
+    <app-gateway-commands-component></app-gateway-commands-component>   
+</div> 
+
+
+<!--<app-cobalt-switch-mode></app-cobalt-switch-mode> -->
+<!-- <webglcanvas *ngIf="isReady()"></webglcanvas> -->
+
+

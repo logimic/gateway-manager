@@ -1,0 +1,7 @@
+<div *ngIf="isVisible()" class="btn-group">
+    <label class="btn btn-danger" (click)="OnRecordClick()"><span class="glyphicon glyphicon-record"></span></label>
+    <label class="btn btn-primary {{isRecording()?'disabled':''}}" (click)="OnPlayClick()"> <span [class]="this.playLabel()"></span>  </label>
+    <label type="button" class="btn btn-primary {{isRecording()?'disabled':''}}" (click)="OnStopClick()"><span class="glyphicon glyphicon-stop"></span></label>
+    <label type="button" class="btn btn-primary {{isRecording()?'disabled':''}}" (click)="OnStepLeft()"><span class="glyphicon glyphicon-step-backward"></span></label>
+    <label type="button" class="btn btn-primary {{isRecording()?'disabled':''}}" (click)="OnStepRight()"><span class="glyphicon glyphicon-step-forward"></span></label>
+</div>

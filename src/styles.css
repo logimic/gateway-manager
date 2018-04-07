@@ -1,0 +1,619 @@
+@import '~https://fonts.googleapis.com/icon?family=Material+Icons';
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import 'https://fonts.googleapis.com/css?family=Share+Tech+Mono';
+@import 'https://fonts.googleapis.com/css?family=Roboto';
+  
+.basic-container {
+    padding: 5px;
+}
+
+.version-info {
+    font-size: 8pt;
+    float: right;
+}
+
+.tran {
+    z-index: 3;
+    background: rgba(155, 31, 31, 0.5);
+}
+  
+body { 
+    margin: 0; 
+    font-family: Arial, Helvetica, sans-serif; 
+    overflow: hidden;
+}
+
+canvas { width: 100%; height: 100% }
+
+webglcanvas{
+    display: block; position: absolute; 
+    top:0px;
+    left:0px;
+    right:100px;
+    bottom:100px;
+    z-index: 0;
+}
+
+.loader-wrapper
+{
+    background-color: #000000;
+    text-align: center;
+    vertical-align: middle;
+    position: absolute; 
+    top: 0px;left:0px;right: 0px;bottom: 0px;z-index: 2;
+}
+
+.like-table
+{
+    position: relative;
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.loader-wrapper span
+{
+    position: relative;
+    width:100%;
+    height: 100%;
+    vertical-align:middle;
+    display: table-cell;
+    color: #eeeeee;
+    font-size: 32px;
+}
+
+.loader {
+    display: inline-block;
+    
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid lightgrey;
+    border-right: 16px solid grey;
+    border-bottom: 16px solid darkgrey;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+cobalt-progress
+{
+    position: absolute;
+    display: block;
+    left: 0; right:0;
+    bottom: 5px; height: 40px;
+    width: 100px;
+    z-index: 1;
+}
+
+.title{
+    color: rgb(255, 255, 255);
+    width: 100%;
+    text-align: left;
+    height: 24px;
+    font: 24px arial, sans-serif;
+    vertical-align: middle;
+}
+
+.endGrabText{
+    color: rgb(97, 3, 105);
+    width: 100%;
+    text-align: left;    
+    font: bold 22px 'Roboto', sans-serif;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.endGrabAxesText{
+    color: rgb(97, 3, 105);
+    width: 100%;
+    text-align: left;    
+    font: 18px 'Roboto', sans-serif;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.messageText{
+    color: rgb(255, 0, 0);
+    width: 100%;
+    text-align: left;    
+    font: bold 22px 'Roboto', sans-serif;
+    vertical-align: top;
+    margin-left: 10px;
+}
+
+app-gateway-status-component {
+    position: absolute; 
+    display: block; 
+    top:5px;
+    width:300px;
+    right:5px;
+    height:350px;
+    padding: 5px 5px 5px 5px;
+    z-index: 3;
+    background: rgba(100, 100, 100, 0.5)
+}
+
+app-cobalt-file-dialog {
+    position: absolute; 
+    display: block; 
+    top:5px;
+    width:300px;
+    left:355px;
+    height:200px;
+    padding: 5px 5px 5px 5px;
+    z-index: 3;
+    background: rgba(100, 100, 100, 0.5)
+}
+
+app-cobalt-zoom-direction{
+    position: absolute;
+    display: block;
+    right: 5px;
+    top: 260px;
+    height: 140px;
+    width: 300px;
+    z-index: 3;
+    padding: 5px 5px 5px 5px;
+    background:  rgba(100, 100, 100, 0.5);    
+}
+
+app-gateway-commands-component {
+    position: absolute;
+    display: block;
+    top: 360px;
+    right: 5px;
+    /* height: 250px;*/
+    width: 300px;    
+    bottom: 10px;    
+    z-index: 3;
+    padding: 5px 5px 5px 5px;
+    background:  rgba(100, 100, 100, 0.5)
+}
+
+app-cobalt-control-mode-panel{
+    position: absolute;
+    display: block;
+    right: 310px;
+    bottom: 75px;
+    width: 580px;
+    height: 150px;
+    z-index: 3;
+    padding: 5px 5px 5px 5px;
+    background:  rgba(100, 100, 100, 0.0)
+}
+
+app-cobalt-slider {
+    position: absolute;
+    display: block;
+    right: 310px;
+    bottom: 5px;
+    width: 530px;
+    height: 60px;
+    z-index: 3;
+    padding: 5px 5px 5px 5px;
+    background:  rgba(100, 100, 100, 0.0)
+}
+
+app-message-panel-component{
+    position: absolute;
+    display: block;
+    right: 310px;
+    top: 5px;
+    height: 100px;
+    width: 530px;
+    z-index: 3;
+    padding: 5px 5px 5px 5px;
+    background:  rgba(255, 102, 0, 0.5);    
+}
+
+app-cobalt-learning-plist{
+    position: absolute;
+    display: block;
+    left: 5px;
+    top: 5px;
+    width: 400px;
+    height: 500px;
+    z-index: 3;
+    padding: 5px 5px 5px 5px;
+    background:  rgba(100, 100, 100, 0.5)
+}
+
+.diod-online-on {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 20px;
+    width: 20px;
+    /*margin:10px;*/
+    border-radius:100%;
+    background-color:rgb(40, 228, 81);
+    /*color:#FFFFFF;*/
+    text-align:center;   
+    vertical-align: middle; 
+    font-size:16px;
+    overflow:hidden;
+  }
+
+.diod-online-off {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 20px;
+    width: 20px;
+    /*margin:10px;*/
+    border-radius:100%;
+    background-color:rgb(111, 116, 116);
+    /*color:#FFFFFF;*/
+    text-align:center;   
+    vertical-align: middle; 
+    font-size:16px;
+    overflow:hidden;
+  }
+
+/* On-line text */
+.text-online {
+    position: absolute;
+    top: 10px;
+    right: 40px;
+    font-size:16px;
+    color:hsl(278, 51%, 38%);
+    text-align:right;   
+    vertical-align: middle;     
+}  
+
+.logo {
+    position: absolute;
+    display: block;
+    left: 5px;
+    bottom: 5px;
+    z-index: 3;
+}
+
+cobalt-direction-button {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+}
+
+cobalt-direction-button.zoom-direction-common{
+    display: block;
+}
+
+cobalt-direction-button.zoom-direction-common> img{
+    left:53px;
+}
+
+cobalt-direction-button>img{
+    position:relative;
+    width: 100%;
+    height: 100%;
+}
+
+cobalt-panel
+{
+    position: absolute;
+    display: block;
+    left: 350px; right:0;
+    bottom: 10px; height: 50px;
+    width: 100px;
+    z-index: 1;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.font_panel_values {
+    font-size: 18px;
+    color: #0066FF;
+}
+
+.font_panel_head {
+    font-size: 24px;
+    color: #0033CC;
+}
+
+.buttonCommands {
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px; 
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);   
+    font: bold 18px arial, sans-serif; 
+}
+
+.button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    font: 22px arial, sans-serif; 
+    padding: 20px;
+    width: 120px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 2px;
+}
+
+.button2 {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    font: 22px arial, sans-serif; 
+    padding: 20px;
+    width: 120px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 2px;
+}
+  
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button:hover span {
+    padding-right: 25px;
+}
+
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.buttonStart{
+    background-color: #338a0b;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;        
+}
+
+.buttonStop{
+    background-color: #e41616;
+    position: absolute;
+    bottom: 5px;
+    left: 130px;        
+}  
+
+.buttonBack{
+    background-color: #338a0b;
+    position: absolute;
+    bottom: 5px;
+    left: 255px;        
+}  
+
+.buttonReset{
+    background-color: #f06406;
+    position: absolute;
+    bottom: 5px;
+    left: 380px;        
+}  
+
+.buttonSwitch{
+    background-color: #0616f0;
+    position: absolute;
+    bottom: 5px;
+    left: 505px;        
+    width: 60px;
+}  
+
+div.btnx {
+    background-image:url("./theme/cube-x.png");
+    width: 62px;
+    height: 55px;
+    display:table-cell;   
+
+}
+
+div.btnx:active {
+    background-image:url("./theme/cube-x2.png");
+    width: 62px;
+    height: 55px;
+    display:table-cell;        
+}
+
+div.btny {
+    background-image:url("./theme/cube-y.png");
+    width: 62px;
+    height: 55px;
+    display:table-cell;
+}
+
+div.btny:active {
+    background-image:url("./theme/cube-y2.png");
+    width: 62px;
+    height: 55px;
+    display:table-cell;
+}
+
+div.btnz {
+    background-image:url("./theme/cube-z.png");
+    width: 62px;
+    height: 55px;
+    display:table-cell;
+}
+
+div.btnz:active {
+    background-image:url("./theme/cube-z2.png");
+    width: 62px;
+    height: 55px;
+    display:table-cell;
+}
+
+div.btnc {
+    background-image:url("./theme/cube-common.png");
+    width: 62px;
+    height: 55px;
+    display:table-cell;       
+}
+
+div.btnc:active {
+    background-image:url("./theme/cube-common2.png");
+    width: 62px;
+    height: 55px;
+}
+
+div.endgrab {
+    background-image:url("./theme/endGrab2.png");
+    width: 72px;
+    height: 65px;
+}
+
+div.endgrab:active {
+    background-image:url("./theme/endGrab.png");
+    width: 72px;
+    height: 65px;
+}
+
+div.saveJson {
+    background-image:url("./theme/saveJson2.png");
+    width: 72px;
+    height: 65px;
+}
+
+div.saveJson:active {
+    background-image:url("./theme/saveJson.png");
+    width: 72px;
+    height: 65px;
+}
+
+div.manPlusX {
+    background-image:url("./theme/manPlusX.jpg");
+    width: 120px;
+    height: 60px;
+    position: absolute;
+    bottom: 70px;
+    left: 5px;    
+    border-radius: 4px; 
+}
+
+div.manPlusX:active {
+    background-image:url("./theme/manPlusX-press.jpg");
+    width: 120px;
+    height: 60px;
+    position: absolute;
+    bottom: 70px;
+    left: 5px;    
+    border-radius: 4px;
+}
+
+div.manMinusX {
+    background-image:url("./theme/manMinX.jpg");
+    width: 120px;
+    height: 60px;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;    
+    border-radius: 4px;
+}
+
+div.manMinusX:active {
+    background-image:url("./theme/manMinX-press.jpg");
+    width: 120px;
+    height: 60px;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;    
+    border-radius: 4px;
+}
+
+div.manPlusY {
+    background-image:url("./theme/manPlusY.jpg");
+    width: 120px;
+    height: 60px;
+    position: absolute;
+    bottom: 70px;
+    left: 130px;  
+    border-radius: 4px;
+}
+
+div.manPlusY:active {
+    background-image:url("./theme/manPlusY-press.jpg");
+    width: 120px;
+    height: 60px;
+    position: absolute;
+    bottom: 70px;
+    left: 130px;    
+    border-radius: 4px;
+}
+
+div.manMinusY {
+    background-image:url("./theme/manMinY.jpg");
+    width: 120px;
+    height: 60px;
+    position: absolute;
+    bottom: 5px;
+    left: 130px;   
+    border-radius: 4px; 
+}
+
+div.manMinusY:active {
+    background-image:url("./theme/manMinY-press.jpg");
+    width: 120px;
+    height: 60px;
+    position: absolute;
+    bottom: 5px;
+    left: 130px;    
+    border-radius: 4px;
+}
+
+div.manPlusZ {
+    background-image:url("./theme/manPlusZ.jpg");
+    width: 120px;
+    height: 60px;
+    position: absolute;
+    bottom: 70px;
+    left: 255px;    
+    border-radius: 4px;
+}
+
+div.manPlusZ:active {
+    background-image:url("./theme/manPlusZ-press.jpg");
+    width: 120px;
+    height: 60px;
+    position: absolute;
+    bottom: 70px;
+    left: 255px; 
+    border-radius: 4px;   
+}
+
+div.manMinusZ {
+    background-image:url("./theme/manMinZ.jpg");
+    width: 120px;
+    height: 60px;
+    position: absolute;
+    bottom: 5px;
+    left: 255px;    
+    border-radius: 4px;
+}
+
+div.manMinusZ:active {
+    background-image:url("./theme/manMinZ-press.jpg");
+    width: 120px;
+    height: 60px;
+    position: absolute;
+    bottom: 5px;
+    left: 255px;   
+    border-radius: 4px;     
+}

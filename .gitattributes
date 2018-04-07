@@ -1,0 +1,5 @@
+
+*.json eol=lf
+*.editorconfig eol=lf
+*.gitignore eol=lf
+*.md eol=lf

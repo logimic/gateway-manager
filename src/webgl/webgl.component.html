@@ -1,0 +1,18 @@
+<cobalt-grab-end [P]="this.P" [A]="this.A" [a]="this.a" [Speed]="this.Speed" [onlineStatus]="this.model.status.onlineStatus"></cobalt-grab-end>
+<app-cobalt-zoom-direction (directionChange)="onDirectionChanged($event)"></app-cobalt-zoom-direction>
+
+<div *ngIf="this.model.status.mode == 0">
+    <app-cobalt-control-mode-panel></app-cobalt-control-mode-panel>
+    <app-cobalt-slider></app-cobalt-slider>
+</div>
+<div *ngIf="this.model.status.mode == 1">
+    <app-cobalt-learning-plist></app-cobalt-learning-plist>
+</div>
+<app-cobalt-switch-mode></app-cobalt-switch-mode>
+
+<div *ngIf="!this.model.status.trajReachable && this.model.status.mode == 0  && this.model.status.onlineStatus">
+    <app-message-panel-component [message]="this.model.status.message"></app-message-panel-component>
+</div>
+<!--
+<img src="theme/TgLogo.png" class="logo">
+-->

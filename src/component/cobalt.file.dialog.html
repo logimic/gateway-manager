@@ -1,0 +1,13 @@
+<div class="title">
+  Angular Material
+</div>
+<div class="basic-container">
+  <h2>File Tree</h2>
+  <ul>
+    <li *ngFor="let file of files">
+      {{file.name}}
+      <button (click)="openFileDialog(file)">Edit</button>
+    </li>
+    <button (click)="openFileDialog()">Add file</button>
+  </ul>
+</div>

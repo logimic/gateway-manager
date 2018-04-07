@@ -1,0 +1,13 @@
+https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/three
+
+three-core.d.ts
+
+skinWeights: Vector4[];
+skinIndices: Vector4[];
+
+insteoad of number[] -> causes errors
+
+
+add to export class Camera extends Object3D
+aspect: number 
+updateProjectionMatrix(): void;
