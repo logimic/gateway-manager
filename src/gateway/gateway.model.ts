@@ -22,7 +22,21 @@ export class Status  {
     public manTrajsOn = false;  // Sets visible manual trajs...
 }
 
+export interface JsonMsgData {
+    msgId: String;
+    timeout: number;
+    status: number;
+}
 
+export interface JsonMsg {
+    mType: string;
+    data: JsonMsgData;
+}
+
+export class Msg {
+    json: JsonMsg;
+    str: String;
+}
 
 /* hold information transmitted by websocket*/
 @Injectable()
@@ -43,23 +57,41 @@ export class GatewayModel  {
         manTrajsOn: false
     };
 
+    // Current msg...
+    //public msg: JsonMsg;
+    //public msgStr: String;
+
+    // Array of messages
+   // public record: Records;
+    msgArray: Msg[];
+
+
     constructor ( protected service: GatewayService) {
 
-        service.emitorMachineStatus$.subscribe( w => {
-            this.status.serverStatus = w;
-        });
+        this.msgArray = new Array();
 
         service.emitorOnlineStatus$.subscribe( w => {
             this.status.onlineStatus = w;
         });
 
+        service.emitorMessage$.subscribe( w => {
+
+            const m = new Msg();
+            m.json = w;
+            m.str = JSON.stringify(w);
+
+            this.msgArray.push(m);
+        //    this.msgArrayStr.push(JSON.stringify(w));
+           // this.record.msgArray.push(this.msg);
+            this.OnMsgReceived();
+        });
 
         // Set init state as control
         this.status.mode = 0;
 
         setTimeout(() => {
             this.ready = true;
-        }, 2000);
+        }, 500);
 
     }
 
@@ -71,5 +103,9 @@ export class GatewayModel  {
         this.service.send(data);
     }
 
+    private OnMsgReceived() {
+      //  window.alert('MSG: ' + this.msgArray[this.msgArray.length - 1].json.mType);
+       //window.alert('MSG: ' + this.msgArrayStr[this.msgArray.length - 1]);
+    }
 
 }

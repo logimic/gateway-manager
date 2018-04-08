@@ -1,0 +1,11 @@
+<div class="title">
+        Message...
+</div>
+<form class="example-form" [formGroup]="form" (ngSubmit)="submit(form)">      
+    <mat-form-field class="example-full-width">
+        <textarea matInput rows="12" cols="40" placeholder="Enter JSON:" formControlName="text"></textarea>
+    </mat-form-field>
+    <button mat-button type="submit">Submit</button>
+    <button mat-button type="cancel">Cancel</button>
+</form>
+

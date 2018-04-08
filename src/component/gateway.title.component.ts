@@ -1,12 +1,14 @@
 import { Component, Input } from '@angular/core';
-import { CobaltModel, PointMachine, Point, IF6 } from '../cobalt/cobalt.model';
+import { GatewayModel} from '../gateway/gateway.model';
 
 @Component({
-    selector: 'cobalt-grab-end',
-    templateUrl: 'cobalt.grab.end.html'
+    selector: 'app-gateway-title-component',
+    templateUrl: 'gateway.title.component.html'
 })
-export class CobaltGrabEndComponent {
+export class GatewayTitleComponent {
 
+    public name = 'Gateway manager';
+/*
     @Input()
     public P: Point = {x: 10, y: 20.6, z: 30};
 
@@ -14,14 +16,16 @@ export class CobaltGrabEndComponent {
     public A: Point = {x: 0, y: 0, z: 0};
 
     @Input()
+  
     public a: IF6 = {f1: 0, f2: 0, f3: 0, f4: 0, f5: 0, f6: 0};
-
+*/
+/*
     @Input()
     public Speed = 0;
 
     @Input()
     public onlineStatus = false;
-
+*/
     constructor() {
     }
 }

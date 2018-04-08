@@ -1,0 +1,21 @@
+<div id="table-wrapper">
+    <div id="table-scroll">
+        <table>
+            
+            <thead>
+                <tr>
+               <!--     <th><span class="text">Message</span></th>  -->
+                    <th><span class="text">JSON</span></th>
+                </tr>
+            </thead>
+        
+            <tbody>
+                <tr *ngFor="let msg of model.msgArray">
+                      <!--  <td><p><span class="tableText">{{msg.json.mType}}</span></p></td> -->
+                        <td><p><span class="tableText">{{msg.str}}</span></p></td>
+                    </tr>
+    
+            </tbody>
+        </table>
+    </div>
+</div>

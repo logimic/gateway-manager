@@ -2,33 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {CommonModule} from '@angular/common';
 import { HttpModule  } from '@angular/http';
-// import { CobaltProgressComponent } from '../component/cobalt.progress';
-// import { CobaltPanelComponent } from '../component/cobalt.panel';
-// import { CobaltCanvasComponent, Cobalt3dComponent } from '../cobalt/cobalt.component';
 import { GatewayModel } from '../gateway/gateway.model';
 import { GatewayService, ConfigService } from '../gateway/gateway.service';
-// import { CobaltDirectionButtonComponent } from '../component/cobalt.direction.button';
-// import { CobaltControlModeComponent } from '../component/cobalt.control.mode.panel';
-// import { CobaltSwitchModeComponent } from '../component/cobalt.switch.mode';
-// import { CobaltLearningPlistComponent } from '../component/cobalt.learning.plist';
 import { GatewayStatusComponent} from '../component/gateway.status.component';
 import { GatewayCommandsComponent} from '../component/gateway.commands.component';
-// import { CobaltSlider} from '../component/cobalt.slider';
-// import { CobaltFileDialog} from '../component/cobalt.file.dialog';
-import { ZoomDirectionComponent } from '../component/zoom.direction.component';
-// import { WebGlComponent } from '../webgl/webgl.component';
-// import { StlService } from '../webgl/stl.service';
+import { GatewayTitleComponent} from '../component/gateway.title.component';
+import { GatewayMessageComponent} from '../component/gateway.message.component';
+import { GatewayMessageListComponent} from '../component/gateway.message.list.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-/*
-import {FileNameDialogComponent} from '../component/file.name.dialog.component';
-import {WorkpointDialogComponent} from '../component/workpoint.dialog.component';
-import {ConfirmDialogComponent} from '../component/confirm.dialog.component';
-import {EndgrabDialogComponent} from '../component/endgrab.dialog.component';
-import {SaveDialogComponent} from '../component/save.dialog.component';
-import {MessagePanelComponent} from '../component/message.panel.component';
-*/
-
 import {A11yModule} from '@angular/cdk/a11y';
 import {BidiModule} from '@angular/cdk/bidi';
 import {ObserversModule} from '@angular/cdk/observers';
@@ -38,6 +20,7 @@ import {PortalModule} from '@angular/cdk/portal';
 import {ScrollDispatchModule} from '@angular/cdk/scrolling';
 import {CdkStepperModule} from '@angular/cdk/stepper';
 import {CdkTableModule} from '@angular/cdk/table';
+
 
 import {
   MatAutocompleteModule,
@@ -127,9 +110,12 @@ export class MaterialModule {}
   declarations: [
     AppComponent,
     GatewayCommandsComponent,
-  GatewayStatusComponent,
+    GatewayStatusComponent,
+    GatewayTitleComponent,
+    GatewayMessageComponent,
+    GatewayMessageListComponent
    // WebGlComponent,
-    ZoomDirectionComponent
+   // ZoomDirectionComponent
   ],
   imports: [
     BrowserModule,

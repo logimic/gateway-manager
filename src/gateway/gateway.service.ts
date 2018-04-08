@@ -1,5 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { ServerStatus } from './gateway.model';
+import { ServerStatus, JsonMsg } from './gateway.model';
 
 @Injectable()
 export class ConfigService {
@@ -17,6 +17,8 @@ export class GatewayService {
     private connection: WebSocket = null;
     public emitorMachineStatus$: EventEmitter<ServerStatus> = new EventEmitter();
     public emitorOnlineStatus$: EventEmitter<boolean> = new EventEmitter();
+    public emitorMessage$: EventEmitter<JsonMsg> = new EventEmitter();
+    public emitorMessage2$: EventEmitter<String> = new EventEmitter();
 
     constructor(protected config: ConfigService) {
         this.open();
@@ -46,22 +48,15 @@ export class GatewayService {
 
         this.connection.onmessage = (message: any) => {
 
-            window.alert('msg');
             try {
                 const json = JSON.parse(message.data);
+                self.emitorMessage$.emit(json as JsonMsg);
 
-                if (json.type) {
-                    if (json.type === 'getMachineStatus') {
-                        self.emitorMachineStatus$.emit(json.data as ServerStatus);
-
-                    }
-                } else {
-                    // self.emitor$.emit(json.data as PointMachine);
-                   // window.alert(message.data);
-                }
             } catch (e) {
                 console.log('This doesn\'t look like a valid JSON: ',
                     message.data);
+
+                window.alert('!!!Error:' + e );
                 return;
             }
 
