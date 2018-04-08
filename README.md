@@ -38,7 +38,7 @@ export class Camera extends Object3D {
 }
 ```
 
-## Development server
+## Run via Web Browser
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
@@ -145,19 +145,19 @@ $ npm run electron
 
 ## Deployment via Electron
 
-This uses [elsectron-packager](https://github.com/electron-userland/electron-packager)
+This uses [electron-packager](https://github.com/electron-userland/electron-packager) and creates standalone app runnable on many operating systems.
 
 1. Instal package via npm if you didn't
 ```
 # for use from cli
 npm install electron-packager -g
 ```
-2. Go to **../cobalt-model/www/** folder (or dist/ or whenever you have electron build)
+2. Go to **../gateway-manager/www/** folder (or dist/ or whenever you have electron build)
 3. Make package
 ```
 electron-packager .
 ```
-4. You should see **../cobalt-model/www/angular-electron-win32-x64/** folder on Win.  Inside you run **.exe** app
+4. You should see **../gateway-manager/www/angular-electron-win32-x64/** folder on Win.  Inside you run **.exe** app
 5. If any issues see https://github.com/electron-userland/electron-packager
 
 
