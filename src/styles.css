@@ -91,18 +91,27 @@ cobalt-progress
     color: rgb(255, 255, 255);
     width: 100%;
     text-align: left;
-    height: 24px;
-    font: 24px arial, sans-serif;
+    height: 22px;
+    font: 22px arial, sans-serif;
     vertical-align: middle;
 }
 
-.endGrabText{
+.appTitle{
+    color: rgb(97, 3, 105);
+    width: 100%;
+    text-align: center;    
+    font: bold 26px arial, sans-serif;
+    vertical-align: middle;
+    /*margin-left: 10px;*/
+}
+
+.statusText{
     color: rgb(97, 3, 105);
     width: 100%;
     text-align: left;    
-    font: bold 22px 'Roboto', sans-serif;
-    vertical-align: middle;
-    margin-left: 10px;
+    font: 16px arial, sans-serif;
+    /*vertical-align: middle;*/
+    /*margin-left: 10px;*/
 }
 
 .endGrabAxesText{
@@ -132,7 +141,7 @@ app-gateway-title-component {
     height:80px;
     padding: 5px 5px 5px 5px;
     z-index: 3;
-    background: rgba(100, 100, 100, 0.5)
+    background: rgba(100, 100, 100, 0.0)
 }
 
 app-gateway-status-component {
@@ -150,10 +159,10 @@ app-gateway-status-component {
 app-gateway-message-component {
     position: absolute; 
     display: block; 
-    height: 300px;
-    bottom:10px;
-    right:310px;
-    left:310px;
+    top:5px;
+    width:300px;
+    left:5px;
+    bottom:5px;
     padding: 5px 5px 5px 5px;
     z-index: 3;
     background: rgba(100, 100, 100, 0.5)
@@ -166,7 +175,7 @@ app-gateway-commands-component {
     right: 5px;
     /* height: 250px;*/
     width: 300px;    
-    bottom: 10px;    
+    bottom: 5px;    
     z-index: 3;
     padding: 5px 5px 5px 5px;
     background:  rgba(100, 100, 100, 0.5)
@@ -178,8 +187,8 @@ app-gateway-message-list-component {
     top: 90px;
     right: 310px;
     /* height: 250px;*/
-    left: 5px;    
-    bottom: 360px;    
+    left: 310px;    
+    bottom: 5px;    
     z-index: 3;
     padding: 5px 5px 5px 5px;
     background:  rgba(100, 100, 100, 0.5)
@@ -195,18 +204,6 @@ app-cobalt-file-dialog {
     padding: 5px 5px 5px 5px;
     z-index: 3;
     background: rgba(100, 100, 100, 0.5)
-}
-
-app-cobalt-zoom-direction{
-    position: absolute;
-    display: block;
-    right: 5px;
-    top: 260px;
-    height: 140px;
-    width: 300px;
-    z-index: 3;
-    padding: 5px 5px 5px 5px;
-    background:  rgba(100, 100, 100, 0.5);    
 }
 
 app-cobalt-control-mode-panel{
@@ -674,4 +671,26 @@ div.sendJson:active {
     bottom: 5px;
     right: 5px;   
     border-radius: 4px;     
+}
+
+div.clearMsgsBtn {
+    background-image:url("./theme/delMsgList.png");
+    width: 72px;
+    height: 65px;
+    position: absolute;
+    bottom: 70px;
+    right: 5px;    
+    border-radius: 4px; 
+
+}
+
+div.clearMsgsBtn:active {
+    background-image:url("./theme/delMsgList-pressed.png");
+    width: 72px;
+    height: 65px;
+    position: absolute;
+    bottom: 70px;
+    right: 5px;    
+    border-radius: 4px; 
+
 }

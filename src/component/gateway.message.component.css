@@ -1,7 +1,15 @@
 .example-form {
-    width: 100%;
+   width: 100%;   
   }
   
   .example-full-width {
     width: 100%;
+  }
+
+  .selector-full-width {
+    width: 100%;
+  }
+
+  mat-form-field.mat-form-field {
+    font-size: 13px;
   }

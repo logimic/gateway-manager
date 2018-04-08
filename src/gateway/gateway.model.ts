@@ -23,7 +23,7 @@ export class Status  {
 }
 
 export interface JsonMsgData {
-    msgId: String;
+    msgId: string;
     timeout: number;
     status: number;
 }
@@ -35,7 +35,26 @@ export interface JsonMsg {
 
 export class Msg {
     json: JsonMsg;
-    str: String;
+    str: string;
+    strReq: string;
+}
+
+export interface IMessageList {
+    messages: string[];
+}
+
+export interface IqrfEmbedLedgSet {
+    mType: string;
+    data: {
+        msgId: string;
+        timeout: number;
+        req: {
+            nAdr: number;
+            hwpId: number;
+            onOff: boolean;
+        };
+        returnVerbose: boolean;
+    };
 }
 
 /* hold information transmitted by websocket*/
@@ -64,6 +83,7 @@ export class GatewayModel  {
     // Array of messages
    // public record: Records;
     msgArray: Msg[];
+    msgRequest = '';
 
 
     constructor ( protected service: GatewayService) {
@@ -78,7 +98,10 @@ export class GatewayModel  {
 
             const m = new Msg();
             m.json = w;
-            m.str = JSON.stringify(w);
+            m.str = JSON.stringify(w, null, 2);
+            m.strReq = this.msgRequest;
+
+            //window.alert('-->xx:' + this.msgRequest);
 
             this.msgArray.push(m);
         //    this.msgArrayStr.push(JSON.stringify(w));

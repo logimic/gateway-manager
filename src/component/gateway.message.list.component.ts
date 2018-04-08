@@ -16,4 +16,9 @@ export class GatewayMessageListComponent {
 
     }
 
+    OnClearMsgs () {
+
+       // window.alert('cccc');
+       this.model.msgArray.length = 0;
+    }
 }

@@ -7,7 +7,7 @@ import { GatewayModel} from '../gateway/gateway.model';
 })
 export class GatewayTitleComponent {
 
-    public name = 'Gateway manager';
+    public name = 'IQRF Gateway Daemon Manager';
 /*
     @Input()
     public P: Point = {x: 10, y: 20.6, z: 30};

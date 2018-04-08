@@ -1,8 +1,9 @@
+
 #table-wrapper {
     position:relative;
   }
   #table-scroll {
-    height:250px;
+    height:450px;
     overflow:auto;  
     margin-top:2px;
   }
@@ -11,7 +12,6 @@
   
   }
   #table-wrapper table * {
-    background:yellow;
     color:black;
   }
   #table-wrapper table thead th .text {
@@ -22,12 +22,21 @@
     width:35%;
     border:1px solid red;
   }
-
+/*
   .tableText{
     color: rgb(255, 255, 255);
-    width: 100%;
+    width: 100%;    
     text-align: justify;
     text-justify: inter-word;    
     height: 24px;
-    font: 12px arial, sans-serif;
+    font: 10px arial, sans-serif;
+}
+*/
+
+mat-panel-description.mat-panel-description {
+  font-size: 12px;
+}
+
+mat-form-field.mat-form-field {
+  font-size: 13px;
 }

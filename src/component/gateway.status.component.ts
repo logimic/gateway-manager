@@ -6,6 +6,12 @@ import { GatewayModel} from '../gateway/gateway.model';
     templateUrl: 'gateway.status.component.html'
 })
 export class GatewayStatusComponent {
+
+    public gwmVersion = 'v0.0.1';
+    public gwmLastupdate = 'Apr-2018';
+    public apiVersion = '1-0-0';
+    public wsserver = 'ws://127.0.0.1:1338';
+    public wsprotocol = 'iqrf';
 /*
     @Input()
     public P: Point = {x: 10, y: 20.6, z: 30};

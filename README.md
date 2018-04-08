@@ -2,8 +2,9 @@
 
 ## Prerequisites
 
-* This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2.
-* Latest recommended version for build is 1.4.3.
+* Node.js
+* npm
+* [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2. Latest recommended version for build is 1.4.3. Install:
 ```
 npm uninstall -g @angular/cli
 npm cache clean
@@ -13,13 +14,8 @@ npm install -g @angular/cli@1.4.3
 
 ## Building after pulling from Github
 
-1. Open terminal/command line and go to folder **cobalt-model**.
-
-```
-cd ..\03_Software\Source\cobalt-model
-```
-
-2. Install local packages
+1. Open terminal/command line and go to main folder.
+2. Install local packages from command line.
 
 ```
 rm -rf node_modules dist # use rmdir /S/Q node_modules dist in Windows Command Prompt; use rm -r -fo node_modules,dist in Windows PowerShell
@@ -29,7 +25,7 @@ npm install
 
 ## Apply fix
 
-1. Update file **..\03_Software\Source\cobalt-model\node_modules\\@types\three\three-core.d.ts**
+1. Update file **..\gateway-manager\node_modules\\@types\three\three-core.d.ts**
 2. Add following code at the end of class:
 ```
 export class Camera extends Object3D {

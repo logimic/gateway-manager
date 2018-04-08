@@ -1,21 +1,44 @@
+<div class="title">
+    Messages received...
+</div>
+<div style="padding: 7px">
 <div id="table-wrapper">
     <div id="table-scroll">
         <table>
-            
+      <!--      
             <thead>
                 <tr>
-               <!--     <th><span class="text">Message</span></th>  -->
+                    <th><span class="text">Message</span></th> 
                     <th><span class="text">JSON</span></th>
                 </tr>
             </thead>
-        
+        -->
             <tbody>
-                <tr *ngFor="let msg of model.msgArray">
+                <tr *ngFor="let msg of model.msgArray; let i = index">
                       <!--  <td><p><span class="tableText">{{msg.json.mType}}</span></p></td> -->
-                        <td><p><span class="tableText">{{msg.str}}</span></p></td>
+                     <!--   <td><p><span class="tableText">{{msg.str}}</span></p></td> -->
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                              <mat-panel-title><b>No:</b>&nbsp;{{i}}</mat-panel-title>
+                              <mat-panel-description> <b>mType:</b>&nbsp;{{msg.json.mType}}</mat-panel-description>                        
+                              <mat-panel-description> <b>Status:</b>&nbsp;{{msg.json.data.status}}</mat-panel-description>  
+                            </mat-expansion-panel-header>
+                        
+                            <p><font size="2"><b>request:</b> {{msg.strReq}}</font></p>
+                            <p><font size="2"><b>response:</b>{{msg.str}}</font></p>
+                        
+                            <!--
+                            <mat-form-field>
+                              <input matInput placeholder="Age">
+                            </mat-form-field>
+                        -->
+                          </mat-expansion-panel>
                     </tr>
     
             </tbody>
         </table>
     </div>
 </div>
+</div>
+
+<div class="clearMsgsBtn" type="x" (click)="OnClearMsgs()"></div>

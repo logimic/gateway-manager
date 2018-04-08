@@ -56,7 +56,7 @@ export class GatewayService {
                 console.log('This doesn\'t look like a valid JSON: ',
                     message.data);
 
-                window.alert('!!!Error:' + e );
+                window.alert('ERROR: ' + message.data );
                 return;
             }
 
