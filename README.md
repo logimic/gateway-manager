@@ -1,4 +1,14 @@
-# gateway-manager
+# Gateway Manager
+
+The tool for easy configuration of your IOT Gateway and end devices.
+
+* [Available releases for Win and Lin](https://github.com/logimic/gateway-manager/releases)
+
+**Supported gateways:**
+
+1. IQRF Daemon Gateway V2.0
+
+# Build from sources
 
 ## Prerequisites
 
@@ -64,7 +74,7 @@ npm install -g electron
 
   function createWindow () {
     // Create the browser window.
-    win = new BrowserWindow({width: 800, height: 600})
+    win = new BrowserWindow({width: 1024, height: 768})
 
     // and load the index.html of the app.
     win.loadURL(`file://${__dirname}/index.html`)
@@ -109,7 +119,7 @@ npm install -g electron
   * **package.json**
 ```
 {
-  "name"    : "Cobalt Control",
+  "name"    : "Gateway Manager",
   "version" : "0.1.0",
   "main": "electron.js",
   "scripts": {
