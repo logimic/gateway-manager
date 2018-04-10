@@ -4,15 +4,15 @@ import { GatewayService } from '../gateway/gateway.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
-    selector: 'app-gateway-message-component',
-    templateUrl: 'gateway.message.component.html',
-    styleUrls: ['gateway.message.component.css']
+    selector: 'app-gateway-msg-plain-component',
+    templateUrl: 'gateway.msg.plain.component.html',
+    styleUrls: ['gateway.msg.plain.component.css']
 })
-export class GatewayMessageComponent {
+export class GatewayMsgPlainComponent {
 
     form: FormGroup;
 
-    public cLedOn: IqrfEmbedLedgSet = {
+    public cLedgOn: IqrfEmbedLedgSet = {
         mType: 'iqrfEmbedLedg_Set',
         data: {
           msgId: 'nostrud exercitation Ut est',
@@ -87,14 +87,14 @@ export class GatewayMessageComponent {
        let msg = '';
 
        if (this.mode === 1) {
-           this.cLedOn.data.req.onOff = true;
-           this.cLedOn.data.msgId = 'daemonMgrGreenLedOn';
-           msg = JSON.stringify(this.cLedOn, null, 2);
+           this.cLedgOn.data.req.onOff = true;
+           this.cLedgOn.data.msgId = 'daemonMgrGreenLedOn';
+           msg = JSON.stringify(this.cLedgOn, null, 2);
 
        } else if (this.mode === 2) {
-           this.cLedOn.data.req.onOff = false;
-           this.cLedOn.data.msgId = 'daemonMgrGreenLedOff';
-           msg = JSON.stringify(this.cLedOn, null, 2);
+           this.cLedgOn.data.req.onOff = false;
+           this.cLedgOn.data.msgId = 'daemonMgrGreenLedOff';
+           msg = JSON.stringify(this.cLedgOn, null, 2);
 
        }
 

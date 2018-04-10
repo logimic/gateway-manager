@@ -57,6 +57,12 @@ export interface IqrfEmbedLedgSet {
     };
 }
 
+export interface ConfigWS {
+    wsServer: string;
+    wsProtocol: string;
+    valid: boolean;
+}
+
 /* hold information transmitted by websocket*/
 @Injectable()
 export class GatewayModel  {
@@ -74,6 +80,12 @@ export class GatewayModel  {
         message: '',
         trajReady: false,
         manTrajsOn: false
+    };
+
+    public cfg: ConfigWS = {
+        wsServer: '-',
+        wsProtocol: '-',
+        valid: false
     };
 
     // Current msg...
@@ -107,6 +119,10 @@ export class GatewayModel  {
         //    this.msgArrayStr.push(JSON.stringify(w));
            // this.record.msgArray.push(this.msg);
             this.OnMsgReceived();
+        });
+
+        service.emitorCfg$.subscribe( w => {
+            this.cfg = w;
         });
 
         // Set init state as control

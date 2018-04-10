@@ -7,9 +7,11 @@
 
 <div *ngIf="isReady()">
     <app-gateway-title-component></app-gateway-title-component>
-    <app-gateway-status-component [onlineStatus]="this.model.status.onlineStatus"></app-gateway-status-component>    
+    <app-gateway-status-component [onlineStatus]="this.model.status.onlineStatus" 
+    [wsServer]="this.model.cfg.wsServer" [wsProtocol]="this.model.cfg.wsProtocol"></app-gateway-status-component>    
     <app-gateway-commands-component></app-gateway-commands-component>   
-    <app-gateway-message-component></app-gateway-message-component>
+    <!--<app-gateway-message-component></app-gateway-message-component> -->
+    <app-gateway-msg-container-component></app-gateway-msg-container-component>
     <app-gateway-message-list-component></app-gateway-message-list-component>
 </div> 
 

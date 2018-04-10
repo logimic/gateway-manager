@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 import {CommonModule} from '@angular/common';
 import { HttpModule  } from '@angular/http';
 import { GatewayModel } from '../gateway/gateway.model';
-import { GatewayService, ConfigService } from '../gateway/gateway.service';
+import { GatewayService } from '../gateway/gateway.service';
 import { GatewayStatusComponent} from '../component/gateway.status.component';
 import { GatewayCommandsComponent} from '../component/gateway.commands.component';
 import { GatewayTitleComponent} from '../component/gateway.title.component';
-import { GatewayMessageComponent} from '../component/gateway.message.component';
+import { GatewayMsgPlainComponent} from '../component/gateway.msg.plain.component';
+import { GatewayMsgConcComponent} from '../component/gateway.msg.conc.component';
+import { GatewayMsgContainerComponent} from '../component/gateway.msg.container.component';
 import { GatewayMessageListComponent} from '../component/gateway.message.list.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -112,7 +114,9 @@ export class MaterialModule {}
     GatewayCommandsComponent,
     GatewayStatusComponent,
     GatewayTitleComponent,
-    GatewayMessageComponent,
+    GatewayMsgPlainComponent,
+    GatewayMsgConcComponent,
+    GatewayMsgContainerComponent,
     GatewayMessageListComponent
    // WebGlComponent,
    // ZoomDirectionComponent
@@ -127,7 +131,6 @@ export class MaterialModule {}
     BrowserAnimationsModule
   ],
   providers: [
-    ConfigService,
     GatewayService,
     GatewayModel
    // StlService,
