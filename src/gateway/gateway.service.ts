@@ -19,6 +19,7 @@ export class GatewayService {
     public emitorOnlineStatus$: EventEmitter<boolean> = new EventEmitter();
     public emitorMessage$: EventEmitter<JsonMsg> = new EventEmitter();
     public emitorMessage2$: EventEmitter<String> = new EventEmitter();
+    public emitorMessage3$: EventEmitter<any> = new EventEmitter();
     public emitorCfg$: EventEmitter<ConfigWS> = new EventEmitter();
 
     constructor(protected http: Http) {
@@ -87,14 +88,23 @@ export class GatewayService {
         this.connection.onmessage = (message: any) => {
 
             try {
+                self.emitorMessage3$.emit(message);
+                /*
                 const json = JSON.parse(message.data);
                 self.emitorMessage$.emit(json as JsonMsg);
+                */
+
+                /*
+                if (json.data.rsp.nAdr === '0000') {
+                window.alert('xx: ' + json.data.rsp.nAdr);
+                }
+                */
 
             } catch (e) {
                 console.log('This doesn\'t look like a valid JSON: ',
                     message.data);
 
-                window.alert('ERROR: ' + message.data );
+                window.alert('Invalid JSON data ERROR EXCEPTION: ' + message.data );
                 return;
             }
         };

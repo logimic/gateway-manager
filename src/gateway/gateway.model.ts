@@ -34,16 +34,21 @@ export interface JsonMsg {
 }
 
 export class Msg {
-    json: JsonMsg;
-    str: string;
-    strReq: string;
+    req: any;
+    resp: any; // JSON object message
 }
 
 export interface IMessageList {
     messages: string[];
 }
 
-export interface IqrfEmbedLedgSet {
+
+export interface CoordState {
+    ledg: boolean;
+    ledr: boolean;
+}
+
+export interface IqrfEmbedLedgSetReq {
     mType: string;
     data: {
         msgId: string;
@@ -54,6 +59,116 @@ export interface IqrfEmbedLedgSet {
             onOff: boolean;
         };
         returnVerbose: boolean;
+    };
+}
+
+export interface IqrfEmbedLedgSetResp {
+    mType: string;
+    data: {
+        msgId: string;
+        timeout: number;
+        rsp: {
+            nAdr: number;
+            hwpId: number;
+            rCode: number;
+            dpaVal: number;
+        };
+        insId: string;
+        status: number;
+        statusStr: string;
+    };
+}
+
+export interface IqrfEmbedLedrSetReq {
+    mType: string;
+    data: {
+        msgId: string;
+        timeout: number;
+        req: {
+            nAdr: number;
+            hwpId: number;
+            onOff: boolean;
+        };
+        returnVerbose: boolean;
+    };
+}
+
+export interface IqrfEmbedLedrSetResp {
+    mType: string;
+    data: {
+        msgId: string;
+        timeout: number;
+        rsp: {
+            nAdr: number;
+            hwpId: number;
+            rCode: number;
+            dpaVal: number;
+        };
+        insId: string;
+        status: number;
+        statusStr: string;
+    };
+}
+
+export interface IqrfEmbedLedgGetReq {
+    mType: string;
+    data: {
+        msgId: string;
+        timeout: number;
+        req: {
+            nAdr: number;
+            hwpId: number;
+        };
+        returnVerbose: boolean;
+    };
+}
+
+export interface IqrfEmbedLedgGetResp {
+    mType: string;
+    data: {
+        msgId: string;
+        timeout: number;
+        rsp: {
+            nAdr: number;
+            hwpId: number;
+            rCode: number;
+            dpaVal: number;
+            onOff: boolean;
+        };
+        insId: string;
+        status: number;
+        statusStr: string;
+    };
+}
+
+export interface IqrfEmbedLedrGetReq {
+    mType: string;
+    data: {
+        msgId: string;
+        timeout: number;
+        req: {
+            nAdr: number;
+            hwpId: number;
+        };
+        returnVerbose: boolean;
+    };
+}
+
+export interface IqrfEmbedLedrGetResp {
+    mType: string;
+    data: {
+        msgId: string;
+        timeout: number;
+        rsp: {
+            nAdr: number;
+            hwpId: number;
+            rCode: number;
+            dpaVal: number;
+            onOff: boolean;
+        };
+        insId: string;
+        status: number;
+        statusStr: string;
     };
 }
 
@@ -88,15 +203,42 @@ export class GatewayModel  {
         valid: false
     };
 
-    // Current msg...
-    //public msg: JsonMsg;
-    //public msgStr: String;
-
-    // Array of messages
-   // public record: Records;
     msgArray: Msg[];
-    msgRequest = '';
 
+    public cLedgOn: IqrfEmbedLedgSetReq = {
+        mType: 'iqrfEmbedLedg_Set',
+        data: {
+          msgId: 'nostrud exercitation Ut est',
+          timeout: 0,
+          req: {
+            nAdr: 0,
+            hwpId: 0,
+            onOff: true
+          },
+          returnVerbose: true
+        }
+    };
+
+    public cLedrOn: IqrfEmbedLedrSetReq = {
+        mType: 'iqrfEmbedLedr_Set',
+        data: {
+          msgId: 'nostrud exercitation Ut est',
+          timeout: 0,
+          req: {
+            nAdr: 0,
+            hwpId: 0,
+            onOff: true
+          },
+          returnVerbose: true
+        }
+    };
+
+    public coordState: CoordState = {
+        ledg: false,
+        ledr: false
+    };
+
+    public emitorCoordState$: EventEmitter<CoordState> = new EventEmitter();
 
     constructor ( protected service: GatewayService) {
 
@@ -106,19 +248,8 @@ export class GatewayModel  {
             this.status.onlineStatus = w;
         });
 
-        service.emitorMessage$.subscribe( w => {
-
-            const m = new Msg();
-            m.json = w;
-            m.str = JSON.stringify(w, null, 2);
-            m.strReq = this.msgRequest;
-
-            //window.alert('-->xx:' + this.msgRequest);
-
-            this.msgArray.push(m);
-        //    this.msgArrayStr.push(JSON.stringify(w));
-           // this.record.msgArray.push(this.msg);
-            this.OnMsgReceived();
+        service.emitorMessage3$.subscribe( w => {
+            this.receivedMessage(w);
         });
 
         service.emitorCfg$.subscribe( w => {
@@ -142,9 +273,61 @@ export class GatewayModel  {
         this.service.send(data);
     }
 
-    private OnMsgReceived() {
-      //  window.alert('MSG: ' + this.msgArray[this.msgArray.length - 1].json.mType);
-       //window.alert('MSG: ' + this.msgArrayStr[this.msgArray.length - 1]);
+    private OnMsgReceived(msg: Msg) {
+
     }
 
+    /*
+    * Converts JSON to string.
+    */
+    public msgString (json: any): string {
+        return JSON.stringify( json, null, 2);
+    }
+
+    /*
+    *
+    * This sends message to gateway.
+    */
+    public sendMessage(msg: string) {
+        const m = new Msg();
+        try {
+            m.req = JSON.parse(msg);
+            this.msgArray.push(m);
+            this.service.send(msg);
+        }catch (e) {
+            window.alert('Send message Exception:' + e);
+        }
+     }
+
+    /*
+    *
+    * This recieves message from gateway.
+    */
+    public receivedMessage(msg: any) {
+        const m = new Msg();
+        try {
+            m.resp = JSON.parse(msg.data);
+            if (this.msgArray.length > 0) {
+
+                const lastReq = this.msgArray[this.msgArray.length - 1].req;
+
+                if (m.resp.data.msgId === lastReq.data.msgId) {
+                    this.msgArray[this.msgArray.length - 1].resp = m.resp;
+                } else {
+                    window.alert('***');
+                    this.msgArray.push(m);
+                }
+
+            } else {
+                this.msgArray.push(m);
+            }
+
+        }catch (e) {
+            window.alert('Receive message Exception:' + e);
+
+        }
+
+
+
+    }
 }

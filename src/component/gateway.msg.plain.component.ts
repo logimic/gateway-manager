@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { GatewayModel, IMessageList, IqrfEmbedLedgSet} from '../gateway/gateway.model';
+import { GatewayModel, IMessageList, IqrfEmbedLedgSetReq} from '../gateway/gateway.model';
 import { GatewayService } from '../gateway/gateway.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
@@ -12,7 +12,7 @@ export class GatewayMsgPlainComponent {
 
     form: FormGroup;
 
-    public cLedgOn: IqrfEmbedLedgSet = {
+    public cLedgOn: IqrfEmbedLedgSetReq = {
         mType: 'iqrfEmbedLedg_Set',
         data: {
           msgId: 'nostrud exercitation Ut est',
@@ -32,22 +32,10 @@ export class GatewayMsgPlainComponent {
 
     public mode = 0;
 
-    constructor(protected service: GatewayService, protected model: GatewayModel, fb: FormBuilder) {
+    constructor(protected model: GatewayModel, fb: FormBuilder) {
         this.form = fb.group({
             'text': ''
           });
-    }
-
-    OnClick(data: any): void {
-        this.service.send(data);
-    }
-
-    OnSend(e: any): void {
-        this.OnClick(JSON.stringify({
-            'data': {
-            'command': 'cnc/startFwd'
-            }
-        }));
     }
 
     submit(form) {
@@ -57,14 +45,9 @@ export class GatewayMsgPlainComponent {
         ];
 
         if (list.length > 0) {
+            const msg = list[0];
 
-           const msg = list[0];
-
-           this.model.msgRequest = msg;
-
-          // window.alert('-->' + this.model.msgRequest);
-
-           this.service.send(list[0]);
+            this.model.sendMessage(list[0]);
         }
       }
 
