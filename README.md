@@ -165,7 +165,7 @@ npm install electron-packager -g
 2. Go to **../gateway-manager/www/** folder (or dist/ or whenever you have electron build)
 3. Make package
 ```
-electron-packager .
+electron-packager ./ --all
 ```
 4. You should see **../gateway-manager/www/angular-electron-win32-x64/** folder on Win.  Inside you run **.exe** app
 5. If any issues see https://github.com/electron-userland/electron-packager
