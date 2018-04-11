@@ -119,7 +119,7 @@ npm install -g electron
   * **package.json**
 ```
 {
-  "name"    : "Gateway Manager",
+  "name"    : "GatewayManager",
   "version" : "0.1.0",
   "main": "electron.js",
   "scripts": {
