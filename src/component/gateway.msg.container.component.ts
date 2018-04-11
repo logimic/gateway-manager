@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { GatewayModel, IMessageList, IqrfEmbedLedgSetReq} from '../gateway/gateway.model';
+import { GatewayModel, IqrfEmbedLedgSetReq} from '../gateway/gateway.model';
 import { GatewayService } from '../gateway/gateway.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 

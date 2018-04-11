@@ -33,15 +33,14 @@ export interface JsonMsg {
     data: JsonMsgData;
 }
 
-export class Msg {
-    req: any;
-    resp: any; // JSON object message
-}
-
 export interface IMessageList {
-    messages: string[];
+    messages: string [];
 }
 
+export class Msg {
+    req: string;
+    resp: string;
+}
 
 export interface CoordState {
     ledg: boolean;
@@ -248,7 +247,7 @@ export class GatewayModel  {
             this.status.onlineStatus = w;
         });
 
-        service.emitorMessage3$.subscribe( w => {
+        service.emitorMessage$.subscribe( w => {
             this.receivedMessage(w);
         });
 
@@ -277,6 +276,26 @@ export class GatewayModel  {
 
     }
 
+    public getMType (msgStr: string): string {
+        try {
+            const mm: JsonMsg = JSON.parse(msgStr);
+
+            return mm.mType.toString();
+        }catch (e) {
+            return 'error';
+        }
+    }
+
+    public getStatus (msgStr: string): string {
+        try {
+            const mm: JsonMsg = JSON.parse(msgStr);
+
+            return mm.data.status.toString();
+        }catch (e) {
+            return 'error';
+        }
+    }
+
     /*
     * Converts JSON to string.
     */
@@ -289,13 +308,34 @@ export class GatewayModel  {
     * This sends message to gateway.
     */
     public sendMessage(msg: string) {
-        const m = new Msg();
+
         try {
-            m.req = JSON.parse(msg);
-            this.msgArray.push(m);
+            const mm: JsonMsg = JSON.parse(msg);
+
+            try {
+                this.service.send(msg);
+
+                const m = new Msg();
+                m.req = msg;
+                this.msgArray.push(m);
+            }catch (e) {
+                const m = new Msg();
+                m.req = 'Error with sending, not sent: ' + msg;
+                m.resp = 'Error does not exists';
+                this.msgArray.push(m);
+            }
+/*
             this.service.send(msg);
-        }catch (e) {
-            window.alert('Send message Exception:' + e);
+
+            const m = new Msg();
+            m.req = msg;
+            this.msgArray.push(m);
+            */
+        } catch (e) {
+            const m = new Msg();
+            m.req = 'Error with parsing, not sent: ' + msg;
+            m.resp = 'Error does not exists';
+            this.msgArray.push(m);
         }
      }
 
@@ -304,30 +344,31 @@ export class GatewayModel  {
     * This recieves message from gateway.
     */
     public receivedMessage(msg: any) {
-        const m = new Msg();
+
+        let msgStr = '';
+        // const m = new Msg();
         try {
-            m.resp = JSON.parse(msg.data);
-            if (this.msgArray.length > 0) {
-
-                const lastReq = this.msgArray[this.msgArray.length - 1].req;
-
-                if (m.resp.data.msgId === lastReq.data.msgId) {
-                    this.msgArray[this.msgArray.length - 1].resp = m.resp;
-                } else {
-                    window.alert('***');
-                    this.msgArray.push(m);
-                }
-
-            } else {
-                this.msgArray.push(m);
-            }
+            const mm: JsonMsg = JSON.parse(msg.data);
+            msgStr = msg.data;
 
         }catch (e) {
-            window.alert('Receive message Exception:' + e);
-
+            msgStr = 'Error in received message: ' + msg.data;
         }
 
-
-
+        if (this.msgArray.length > 0) {
+            const lastResp = this.msgArray[this.msgArray.length - 1].resp;
+             // window.alert('resp:' + lastResp);
+            if (lastResp === undefined) {
+                this.msgArray[this.msgArray.length - 1].resp = msgStr;
+            } else {
+                const m = new Msg();
+                m.resp = msgStr;
+                this.msgArray.push(m);
+            }
+        } else {
+                const m = new Msg();
+                m.resp = msgStr;
+                this.msgArray.push(m);
+        }
     }
 }

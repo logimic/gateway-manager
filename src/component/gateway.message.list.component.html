@@ -20,12 +20,14 @@
                         <mat-expansion-panel>
                             <mat-expansion-panel-header>
                               <mat-panel-title><b>No:</b>&nbsp;{{i+1}}</mat-panel-title>
-                              <mat-panel-description *ngIf="msg.resp"> <b>mType:</b>&nbsp;{{msg.resp.mType}}</mat-panel-description>
-                              <mat-panel-description *ngIf="msg.resp"> <b>Status:</b>&nbsp;{{msg.resp.data.status}}</mat-panel-description>  
+                    
+                              <mat-panel-description *ngIf="msg.resp"> <b>mType:</b>&nbsp;{{model.getMType(msg.req)}}</mat-panel-description>
+                              <mat-panel-description *ngIf="msg.resp"> <b>Status:</b>&nbsp;{{model.getStatus(msg.resp)}}</mat-panel-description>                              
+
                             </mat-expansion-panel-header>
                         
-                            <p><font size="2"><b>request:</b> {{model.msgString(msg.req)}}</font></p>                            
-                            <p><font size="2"><b>response:</b>{{model.msgString(msg.resp)}}</font></p>
+                            <p><font size="2"><b>request:</b> {{msg.req}}</font></p>                            
+                            <p><font size="2"><b>response:</b>{{msg.resp}}</font></p>
                         
                             <!--
                             <mat-form-field>
