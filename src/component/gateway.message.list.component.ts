@@ -4,7 +4,6 @@ import { GatewayService } from '../gateway/gateway.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MatTableModule} from '@angular/material';
 
-
 @Component({
     selector: 'app-gateway-message-list-component',
     templateUrl: 'gateway.message.list.component.html',

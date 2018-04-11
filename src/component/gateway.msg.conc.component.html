@@ -1,0 +1,9 @@
+
+<div class="concIqrf"></div>
+
+<div class="content" style="margin-left: 15px; margin-top: 35px;">
+    <mat-slide-toggle (change)="OnLedG($event)" [checked]="this.ledg">LED Green</mat-slide-toggle>
+    <mat-slide-toggle (change)="OnLedR($event)" [checked]="this.ledr">LED Red</mat-slide-toggle>
+    <div *ngIf="this.ledg" class="ledg-on"></div>
+    <div *ngIf="this.ledr" class="ledr-on"></div>
+</div>

@@ -159,12 +159,24 @@ app-gateway-status-component {
 app-gateway-message-component {
     position: absolute; 
     display: block; 
+    top:105px;
+    width:100%;
+    left:0px;
+    bottom:80px;
+    padding: 5px 5px 5px 5px;
+    z-index: 3;
+    background: rgba(100, 100, 100, 0.0)
+}
+
+app-gateway-msg-container-component {
+    position: absolute; 
+    display: block; 
     top:5px;
     width:300px;
     left:5px;
     bottom:5px;
     padding: 5px 5px 5px 5px;
-    z-index: 3;
+    z-index: 1;
     background: rgba(100, 100, 100, 0.5)
 }
 
@@ -694,3 +706,45 @@ div.clearMsgsBtn:active {
     border-radius: 4px; 
 
 }
+
+div.concIqrf {
+    background-image:url("./theme/iqrf.png");
+    width: 250px;
+    height: 235px;
+    position: relative;
+    top: 30px;
+    left: 0px;    
+    border-radius: 4px;
+}
+
+.ledg-on {
+    position: absolute;
+    top: 268px;
+    left: 45px;
+    height: 20px;
+    width: 20px;
+    /*margin:10px;*/
+    border-radius:100%;
+    background-color:rgb(40, 228, 81);
+    /*color:#FFFFFF;*/
+    text-align:center;   
+    vertical-align: middle; 
+    font-size:16px;
+    overflow:hidden;
+  }
+
+  .ledr-on {
+    position: absolute;
+    top: 276px;
+    left: 60px;
+    height: 20px;
+    width: 20px;
+    /*margin:10px;*/
+    border-radius:100%;
+    background-color:rgb(228, 40, 40);
+    /*color:#FFFFFF;*/
+    text-align:center;   
+    vertical-align: middle; 
+    font-size:16px;
+    overflow:hidden;
+  }  

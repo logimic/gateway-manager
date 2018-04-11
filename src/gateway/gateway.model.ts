@@ -33,17 +33,21 @@ export interface JsonMsg {
     data: JsonMsgData;
 }
 
-export class Msg {
-    json: JsonMsg;
-    str: string;
-    strReq: string;
-}
-
 export interface IMessageList {
-    messages: string[];
+    messages: string [];
 }
 
-export interface IqrfEmbedLedgSet {
+export class Msg {
+    req: string;
+    resp: string;
+}
+
+export interface CoordState {
+    ledg: boolean;
+    ledr: boolean;
+}
+
+export interface IqrfEmbedLedgSetReq {
     mType: string;
     data: {
         msgId: string;
@@ -55,6 +59,122 @@ export interface IqrfEmbedLedgSet {
         };
         returnVerbose: boolean;
     };
+}
+
+export interface IqrfEmbedLedgSetResp {
+    mType: string;
+    data: {
+        msgId: string;
+        timeout: number;
+        rsp: {
+            nAdr: number;
+            hwpId: number;
+            rCode: number;
+            dpaVal: number;
+        };
+        insId: string;
+        status: number;
+        statusStr: string;
+    };
+}
+
+export interface IqrfEmbedLedrSetReq {
+    mType: string;
+    data: {
+        msgId: string;
+        timeout: number;
+        req: {
+            nAdr: number;
+            hwpId: number;
+            onOff: boolean;
+        };
+        returnVerbose: boolean;
+    };
+}
+
+export interface IqrfEmbedLedrSetResp {
+    mType: string;
+    data: {
+        msgId: string;
+        timeout: number;
+        rsp: {
+            nAdr: number;
+            hwpId: number;
+            rCode: number;
+            dpaVal: number;
+        };
+        insId: string;
+        status: number;
+        statusStr: string;
+    };
+}
+
+export interface IqrfEmbedLedgGetReq {
+    mType: string;
+    data: {
+        msgId: string;
+        timeout: number;
+        req: {
+            nAdr: number;
+            hwpId: number;
+        };
+        returnVerbose: boolean;
+    };
+}
+
+export interface IqrfEmbedLedgGetResp {
+    mType: string;
+    data: {
+        msgId: string;
+        timeout: number;
+        rsp: {
+            nAdr: number;
+            hwpId: number;
+            rCode: number;
+            dpaVal: number;
+            onOff: boolean;
+        };
+        insId: string;
+        status: number;
+        statusStr: string;
+    };
+}
+
+export interface IqrfEmbedLedrGetReq {
+    mType: string;
+    data: {
+        msgId: string;
+        timeout: number;
+        req: {
+            nAdr: number;
+            hwpId: number;
+        };
+        returnVerbose: boolean;
+    };
+}
+
+export interface IqrfEmbedLedrGetResp {
+    mType: string;
+    data: {
+        msgId: string;
+        timeout: number;
+        rsp: {
+            nAdr: number;
+            hwpId: number;
+            rCode: number;
+            dpaVal: number;
+            onOff: boolean;
+        };
+        insId: string;
+        status: number;
+        statusStr: string;
+    };
+}
+
+export interface ConfigWS {
+    wsServer: string;
+    wsProtocol: string;
+    valid: boolean;
 }
 
 /* hold information transmitted by websocket*/
@@ -76,15 +196,48 @@ export class GatewayModel  {
         manTrajsOn: false
     };
 
-    // Current msg...
-    //public msg: JsonMsg;
-    //public msgStr: String;
+    public cfg: ConfigWS = {
+        wsServer: '-',
+        wsProtocol: '-',
+        valid: false
+    };
 
-    // Array of messages
-   // public record: Records;
     msgArray: Msg[];
-    msgRequest = '';
 
+    public cLedgOn: IqrfEmbedLedgSetReq = {
+        mType: 'iqrfEmbedLedg_Set',
+        data: {
+          msgId: 'nostrud exercitation Ut est',
+          timeout: 0,
+          req: {
+            nAdr: 0,
+            hwpId: 0,
+            onOff: true
+          },
+          returnVerbose: true
+        }
+    };
+
+    public cLedrOn: IqrfEmbedLedrSetReq = {
+        mType: 'iqrfEmbedLedr_Set',
+        data: {
+          msgId: 'nostrud exercitation Ut est',
+          timeout: 0,
+          req: {
+            nAdr: 0,
+            hwpId: 0,
+            onOff: true
+          },
+          returnVerbose: true
+        }
+    };
+
+    public coordState: CoordState = {
+        ledg: false,
+        ledr: false
+    };
+
+    public emitorCoordState$: EventEmitter<CoordState> = new EventEmitter();
 
     constructor ( protected service: GatewayService) {
 
@@ -95,18 +248,11 @@ export class GatewayModel  {
         });
 
         service.emitorMessage$.subscribe( w => {
+            this.receivedMessage(w);
+        });
 
-            const m = new Msg();
-            m.json = w;
-            m.str = JSON.stringify(w, null, 2);
-            m.strReq = this.msgRequest;
-
-            //window.alert('-->xx:' + this.msgRequest);
-
-            this.msgArray.push(m);
-        //    this.msgArrayStr.push(JSON.stringify(w));
-           // this.record.msgArray.push(this.msg);
-            this.OnMsgReceived();
+        service.emitorCfg$.subscribe( w => {
+            this.cfg = w;
         });
 
         // Set init state as control
@@ -126,9 +272,103 @@ export class GatewayModel  {
         this.service.send(data);
     }
 
-    private OnMsgReceived() {
-      //  window.alert('MSG: ' + this.msgArray[this.msgArray.length - 1].json.mType);
-       //window.alert('MSG: ' + this.msgArrayStr[this.msgArray.length - 1]);
+    private OnMsgReceived(msg: Msg) {
+
     }
 
+    public getMType (msgStr: string): string {
+        try {
+            const mm: JsonMsg = JSON.parse(msgStr);
+
+            return mm.mType.toString();
+        }catch (e) {
+            return 'not in message';
+        }
+    }
+
+    public getStatus (msgStr: string): string {
+        try {
+            const mm: JsonMsg = JSON.parse(msgStr);
+
+            return mm.data.status.toString();
+        }catch (e) {
+            return 'not in message';
+        }
+    }
+
+    /*
+    * Converts JSON to string.
+    */
+    public msgString (json: any): string {
+        return JSON.stringify( json, null, 2);
+    }
+
+    /*
+    *
+    * This sends message to gateway.
+    */
+    public sendMessage(msg: string) {
+
+        try {
+            const mm: JsonMsg = JSON.parse(msg);
+
+            try {
+                this.service.send(msg);
+
+                const m = new Msg();
+                m.req = msg;
+                this.msgArray.push(m);
+            }catch (e) {
+                const m = new Msg();
+                m.req = 'Error with sending, not sent: ' + msg;
+                m.resp = 'Error does not exists';
+                this.msgArray.push(m);
+            }
+/*
+            this.service.send(msg);
+
+            const m = new Msg();
+            m.req = msg;
+            this.msgArray.push(m);
+            */
+        } catch (e) {
+            const m = new Msg();
+            m.req = 'Error with parsing, not sent: ' + msg;
+            m.resp = 'Error does not exists';
+            this.msgArray.push(m);
+        }
+     }
+
+    /*
+    *
+    * This recieves message from gateway.
+    */
+    public receivedMessage(msg: any) {
+
+        let msgStr = '';
+        // const m = new Msg();
+        try {
+            const mm: JsonMsg = JSON.parse(msg.data);
+            msgStr = msg.data;
+
+        }catch (e) {
+            msgStr = '' + msg.data;
+        }
+
+        if (this.msgArray.length > 0) {
+            const lastResp = this.msgArray[this.msgArray.length - 1].resp;
+             // window.alert('resp:' + lastResp);
+            if (lastResp === undefined) {
+                this.msgArray[this.msgArray.length - 1].resp = msgStr;
+            } else {
+                const m = new Msg();
+                m.resp = msgStr;
+                this.msgArray.push(m);
+            }
+        } else {
+                const m = new Msg();
+                m.resp = msgStr;
+                this.msgArray.push(m);
+        }
+    }
 }

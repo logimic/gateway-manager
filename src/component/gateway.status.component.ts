@@ -7,11 +7,19 @@ import { GatewayModel} from '../gateway/gateway.model';
 })
 export class GatewayStatusComponent {
 
+    @Input()
     public gwmVersion = 'v0.0.1';
+
+    @Input()
     public gwmLastupdate = 'Apr-2018';
+
     public apiVersion = '1-0-0';
-    public wsserver = 'ws://127.0.0.1:1338';
-    public wsprotocol = 'iqrf';
+
+    @Input()
+    public wsServer = '---';
+
+    @Input()
+    public wsProtocol = '---';
 /*
     @Input()
     public P: Point = {x: 10, y: 20.6, z: 30};
