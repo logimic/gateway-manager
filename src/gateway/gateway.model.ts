@@ -282,7 +282,7 @@ export class GatewayModel  {
 
             return mm.mType.toString();
         }catch (e) {
-            return 'error';
+            return 'not in message';
         }
     }
 
@@ -292,7 +292,7 @@ export class GatewayModel  {
 
             return mm.data.status.toString();
         }catch (e) {
-            return 'error';
+            return 'not in message';
         }
     }
 
@@ -352,7 +352,7 @@ export class GatewayModel  {
             msgStr = msg.data;
 
         }catch (e) {
-            msgStr = 'Error in received message: ' + msg.data;
+            msgStr = '' + msg.data;
         }
 
         if (this.msgArray.length > 0) {
