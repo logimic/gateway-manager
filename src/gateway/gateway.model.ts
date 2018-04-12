@@ -3,7 +3,8 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { GatewayService } from './gateway.service';
 // import { ISTLFacets, StlService } from '../webgl/stl.service';
 import { Observable } from 'rxjs/Rx';
-
+import { Coordinator } from './gateway.model.coordinator';
+import * as iqrfApi from './iqrf-api';
 
 export interface ServerStatus {
     cncStatus: number;      // status cnc core
@@ -177,9 +178,13 @@ export interface ConfigWS {
     valid: boolean;
 }
 
+
 /* hold information transmitted by websocket*/
 @Injectable()
 export class GatewayModel  {
+
+    // Gateway Items...
+    public coordinator: Coordinator = null;
 
     public ready = false;
 
@@ -237,9 +242,16 @@ export class GatewayModel  {
         ledr: false
     };
 
+
     public emitorCoordState$: EventEmitter<CoordState> = new EventEmitter();
 
     constructor ( protected service: GatewayService) {
+
+        this.coordinator =  new Coordinator(service);
+
+      //  const simpleObject = {} as iqrfApi.CfgDaemonComponentRequest100;
+      //  let ff = {} as iqrfApi.CfgDaemonComponentRequest100;
+      //ff.data.msgId = '----';
 
         this.msgArray = new Array();
 
@@ -324,13 +336,6 @@ export class GatewayModel  {
                 m.resp = 'Error does not exists';
                 this.msgArray.push(m);
             }
-/*
-            this.service.send(msg);
-
-            const m = new Msg();
-            m.req = msg;
-            this.msgArray.push(m);
-            */
         } catch (e) {
             const m = new Msg();
             m.req = 'Error with parsing, not sent: ' + msg;
@@ -348,8 +353,13 @@ export class GatewayModel  {
         let msgStr = '';
         // const m = new Msg();
         try {
-            const mm: JsonMsg = JSON.parse(msg.data);
+            const mm = JSON.parse(msg.data);
             msgStr = msg.data;
+
+            /*
+            * Parse message.
+            */
+            this.parseIncomingMsg(mm);
 
         }catch (e) {
             msgStr = '' + msg.data;
@@ -370,5 +380,16 @@ export class GatewayModel  {
                 m.resp = msgStr;
                 this.msgArray.push(m);
         }
+    }
+
+    private parseIncomingMsg (json: any) {
+        if (json.mType === 'IqrfEmbedLedgGet') {
+            const msg = json as iqrfApi.IqrfEmbedLedgGetResponse100;
+
+            if (msg.data.rsp.nAdr === 0) {
+                this.coordinator.setLedG(msg.data.rsp.onOff);
+            }
+        }
+
     }
 }
