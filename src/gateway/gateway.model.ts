@@ -48,136 +48,11 @@ export interface CoordState {
     ledr: boolean;
 }
 
-export interface IqrfEmbedLedgSetReq {
-    mType: string;
-    data: {
-        msgId: string;
-        timeout: number;
-        req: {
-            nAdr: number;
-            hwpId: number;
-            onOff: boolean;
-        };
-        returnVerbose: boolean;
-    };
-}
-
-export interface IqrfEmbedLedgSetResp {
-    mType: string;
-    data: {
-        msgId: string;
-        timeout: number;
-        rsp: {
-            nAdr: number;
-            hwpId: number;
-            rCode: number;
-            dpaVal: number;
-        };
-        insId: string;
-        status: number;
-        statusStr: string;
-    };
-}
-
-export interface IqrfEmbedLedrSetReq {
-    mType: string;
-    data: {
-        msgId: string;
-        timeout: number;
-        req: {
-            nAdr: number;
-            hwpId: number;
-            onOff: boolean;
-        };
-        returnVerbose: boolean;
-    };
-}
-
-export interface IqrfEmbedLedrSetResp {
-    mType: string;
-    data: {
-        msgId: string;
-        timeout: number;
-        rsp: {
-            nAdr: number;
-            hwpId: number;
-            rCode: number;
-            dpaVal: number;
-        };
-        insId: string;
-        status: number;
-        statusStr: string;
-    };
-}
-
-export interface IqrfEmbedLedgGetReq {
-    mType: string;
-    data: {
-        msgId: string;
-        timeout: number;
-        req: {
-            nAdr: number;
-            hwpId: number;
-        };
-        returnVerbose: boolean;
-    };
-}
-
-export interface IqrfEmbedLedgGetResp {
-    mType: string;
-    data: {
-        msgId: string;
-        timeout: number;
-        rsp: {
-            nAdr: number;
-            hwpId: number;
-            rCode: number;
-            dpaVal: number;
-            onOff: boolean;
-        };
-        insId: string;
-        status: number;
-        statusStr: string;
-    };
-}
-
-export interface IqrfEmbedLedrGetReq {
-    mType: string;
-    data: {
-        msgId: string;
-        timeout: number;
-        req: {
-            nAdr: number;
-            hwpId: number;
-        };
-        returnVerbose: boolean;
-    };
-}
-
-export interface IqrfEmbedLedrGetResp {
-    mType: string;
-    data: {
-        msgId: string;
-        timeout: number;
-        rsp: {
-            nAdr: number;
-            hwpId: number;
-            rCode: number;
-            dpaVal: number;
-            onOff: boolean;
-        };
-        insId: string;
-        status: number;
-        statusStr: string;
-    };
-}
-
 export interface ConfigWS {
     wsServer: string;
     wsProtocol: string;
     valid: boolean;
 }
-
 
 /* hold information transmitted by websocket*/
 @Injectable()
@@ -209,34 +84,6 @@ export class GatewayModel  {
 
     msgArray: Msg[];
 
-    public cLedgOn: IqrfEmbedLedgSetReq = {
-        mType: 'iqrfEmbedLedg_Set',
-        data: {
-          msgId: 'nostrud exercitation Ut est',
-          timeout: 0,
-          req: {
-            nAdr: 0,
-            hwpId: 0,
-            onOff: true
-          },
-          returnVerbose: true
-        }
-    };
-
-    public cLedrOn: IqrfEmbedLedrSetReq = {
-        mType: 'iqrfEmbedLedr_Set',
-        data: {
-          msgId: 'nostrud exercitation Ut est',
-          timeout: 0,
-          req: {
-            nAdr: 0,
-            hwpId: 0,
-            onOff: true
-          },
-          returnVerbose: true
-        }
-    };
-
     public coordState: CoordState = {
         ledg: false,
         ledr: false
@@ -251,7 +98,7 @@ export class GatewayModel  {
 
       //  const simpleObject = {} as iqrfApi.CfgDaemonComponentRequest100;
       //  let ff = {} as iqrfApi.CfgDaemonComponentRequest100;
-      //ff.data.msgId = '----';
+      // ff.data.msgId = '----';
 
         this.msgArray = new Array();
 
@@ -387,9 +234,8 @@ export class GatewayModel  {
             const msg = json as iqrfApi.IqrfEmbedLedgGetResponse100;
 
             if (msg.data.rsp.nAdr === 0) {
-                this.coordinator.setLedG(msg.data.rsp.onOff);
+                this.coordinator.setData(msg);
             }
         }
-
     }
 }

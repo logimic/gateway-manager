@@ -1,7 +1,7 @@
 <div class="title">
     Message...
 </div>
-<!--
+
 <div class="content" style="margin-left: 5px; margin-top: 20px;">
     <mat-form-field  class="selector-full-width">
         <mat-select placeholder="Message modes..." (change)="OnControlModeClick($event)" [(ngModel)]="this.mode">
@@ -10,7 +10,7 @@
             </mat-option>
         </mat-select>
     </mat-form-field>
-</div> -->
+</div>
 
 <div *ngIf="this.mode == 0">
     <app-gateway-msg-plain-component></app-gateway-msg-plain-component>

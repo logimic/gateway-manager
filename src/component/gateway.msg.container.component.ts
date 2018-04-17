@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { GatewayModel, IqrfEmbedLedgSetReq} from '../gateway/gateway.model';
+import { GatewayModel} from '../gateway/gateway.model';
 import { GatewayService } from '../gateway/gateway.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
@@ -11,7 +11,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class GatewayMsgContainerComponent {
 
 
-    public modeList: string[] = ['Plain message'];
+    public modeList: string[] = ['Plain message', 'IQRF Coordinator'];
     public mode = 0;
 
     constructor(protected service: GatewayService, protected model: GatewayModel, fb: FormBuilder) {

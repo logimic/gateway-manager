@@ -8,7 +8,7 @@ export interface CfgDaemonComponentRequest100 {
   /**
    * General component configuration.
    */
-  mType: "cfgDaemonComponent";
+  mType: "cfgDaemon_Component";
   data: {
     /**
      * Message identification for binding request with response.
@@ -47,7 +47,7 @@ export interface CfgDaemonComponentResponse100 {
   /**
    * General component configuration.
    */
-  mType: "cfgDaemonComponent";
+  mType: "cfgDaemon_Component";
   data: {
     /**
      * Message identification for binding request with response.
@@ -84,9 +84,9 @@ export interface CfgDaemonComponentResponse100 {
 
 export interface IqmeshBondNodeLocalRequest100 {
   /**
-   * IQMESH Network management - Bond Node Local request.
+   * iqmesh_ Network management - Bond Node Local request.
    */
-  mType: "iqmeshBondNodeLocal";
+  mType: "iqmesh_BondNodeLocal";
   data: {
     /**
      * Message identification for binding request with response.
@@ -119,9 +119,9 @@ export interface IqmeshBondNodeLocalRequest100 {
 
 export interface IqmeshBondNodeLocalResponse100 {
   /**
-   * IQMESH Network management - Bond Node Local response.
+   * iqmesh_ Network management - Bond Node Local response.
    */
-  mType: "iqmeshBondNodeLocal";
+  mType: "iqmesh_BondNodeLocal";
   data: {
     /**
      * Message identification for binding request with response.
@@ -245,9 +245,9 @@ export interface IqmeshBondNodeLocalResponse100 {
 
 export interface IqmeshEnumerateDeviceRequest100 {
   /**
-   * IQMESH Network management - Enumerate Device request.
+   * iqmesh_ Network management - Enumerate Device request.
    */
-  mType: "iqmeshEnumerateDevice";
+  mType: "iqmesh_EnumerateDevice";
   data: {
     /**
      * Message identification for binding request with response.
@@ -310,9 +310,9 @@ export type IqmeshEnumDevice5 = {
 
 export interface IqmeshEnumerateDeviceResponse100 {
   /**
-   * IQMESH Network management - Enumerate Device response.
+   * iqmesh_ Network management - Enumerate Device response.
    */
-  mType: "iqmeshEnumerateDevice";
+  mType: "iqmesh_EnumerateDevice";
   data: {
     /**
      * Message identification for binding request with response.
@@ -550,9 +550,9 @@ export interface IqmeshEnumDevice6 {
 
 export interface IqmeshOtaUploadRequest100 {
   /**
-   * IQMESH Network management - Upload hex or iqrf file request.
+   * iqmesh_ Network management - Upload hex or iqrf file request.
    */
-  mType: "iqmeshOtaUpload";
+  mType: "iqmesh_OtaUpload";
   data: {
     /**
      * Message identification for binding request with response.
@@ -597,9 +597,9 @@ export interface IqmeshOtaUploadRequest100 {
 
 export interface IqmeshOtaUploadResponse100 {
   /**
-   * IQMESH Network management - Upload hex or iqrf file response.
+   * iqmesh_ Network management - Upload hex or iqrf file response.
    */
-  mType: "iqmeshOtaUpload";
+  mType: "iqmesh_OtaUpload";
   data: {
     /**
      * Message identification for binding request with response.
@@ -673,9 +673,9 @@ export interface IqmeshOtaUploadResponse100 {
 
 export interface IqmeshReadTrConfRequest100 {
   /**
-   * IQMESH Network management - Read TR configuration request.
+   * iqmesh_ Network management - Read TR configuration request.
    */
-  mType: "iqmeshReadTrConf";
+  mType: "iqmesh_ReadTrConf";
   data: {
     /**
      * Message identification for binding request with response.
@@ -708,9 +708,9 @@ export interface IqmeshReadTrConfRequest100 {
 
 export interface IqmeshReadTrConfResponse100 {
   /**
-   * IQMESH Network management - Read TR configuration response.
+   * iqmesh_ Network management - Read TR configuration response.
    */
-  mType: "iqmeshReadTrConf";
+  mType: "iqmesh_ReadTrConf";
   data: {
     /**
      * Message identification for binding request with response.
@@ -872,9 +872,9 @@ export interface IqmeshReadTrConfResponse100 {
 
 export interface IqmeshWriteTrConfRequest100 {
   /**
-   * IQMESH Network management - Write TR configuration request.
+   * iqmesh_ Network management - Write TR configuration request.
    */
-  mType: "iqmeshWriteTrConf";
+  mType: "iqmesh_WriteTrConf";
   data: {
     /**
      * Message identification for binding request with response.
@@ -1007,9 +1007,9 @@ export interface IqmeshWriteTrConfRequest100 {
 
 export interface IqmeshWriteTrConfResponse100 {
   /**
-   * IQMESH Network management - Write TR configuration response.
+   * iqmesh_ Network management - Write TR configuration response.
    */
-  mType: "iqmeshWriteTrConf";
+  mType: "iqmesh_WriteTrConf";
   data: {
     /**
      * Message identification for binding request with response.
@@ -1089,7 +1089,7 @@ export interface IqrfBinaryoutputEnumerateRequest100 {
   /**
    * Standard peripheral Binary Output - Enumeration request.
    */
-  mType: "iqrfBinaryoutputEnumerate";
+  mType: "iqrfBinaryoutput_Enumerate";
   data: {
     /**
      * Message identification for binding request with response.
@@ -1128,7 +1128,7 @@ export interface IqrfBinaryoutputEnumerateResponse100 {
   /**
    * Standard peripheral Binary Output - Enumeration response.
    */
-  mType: "iqrfBinaryoutputEnumerate";
+  mType: "iqrfBinaryoutput_Enumerate";
   data: {
     /**
      * Message identification for binding request with response.
@@ -1214,7 +1214,7 @@ export interface IqrfBinaryoutputSetOutputRequest100 {
   /**
    * Standard peripheral Binary Output - Set Output request.
    */
-  mType: "iqrfBinaryoutputSetOutput";
+  mType: "iqrfBinaryoutput_SetOutput";
   data: {
     /**
      * Message identification for binding request with response.
@@ -1271,7 +1271,7 @@ export interface IqrfBinaryoutputSetOutputResponse100 {
   /**
    * Standard peripheral Binary Output - Set Output request.
    */
-  mType: "iqrfBinaryoutputSetOutput";
+  mType: "iqrfBinaryoutput_SetOutput";
   data: {
     /**
      * Message identification for binding request with response.
@@ -1357,7 +1357,7 @@ export interface IqrfEmbedCoordinatorAddrInfoRequest100 {
   /**
    * Embedded peripheral Coordinator - Addressing Information request.
    */
-  mType: "iqrfEmbedCoordinatorAddrInfo";
+  mType: "iqrfEmbedCoordinator_AddrInfo";
   data: {
     /**
      * Message identification for binding request with response.
@@ -1396,7 +1396,7 @@ export interface IqrfEmbedCoordinatorAddrInfoResponse100 {
   /**
    * Embedded peripheral Coordinator - Addressing Information response.
    */
-  mType: "iqrfEmbedCoordinatorAddrInfo";
+  mType: "iqrfEmbedCoordinator_AddrInfo";
   data: {
     /**
      * Message identification for binding request with response.
@@ -1482,7 +1482,7 @@ export interface IqrfEmbedCoordinatorAuthorizeBondRequest100 {
   /**
    * Embedded peripheral Coordinator - Authorize Bond request.
    */
-  mType: "iqrfEmbedCoordinatorAuthorizeBond";
+  mType: "iqrfEmbedCoordinator_AuthorizeBond";
   data: {
     /**
      * Message identification for binding request with response.
@@ -1529,7 +1529,7 @@ export interface IqrfEmbedCoordinatorAuthorizeBondResponse100 {
   /**
    * Embedded peripheral Coordinator - Authorize Bond response.
    */
-  mType: "iqrfEmbedCoordinatorAuthorizeBond";
+  mType: "iqrfEmbedCoordinator_AuthorizeBond";
   data: {
     /**
      * Message identification for binding request with response.
@@ -1615,7 +1615,7 @@ export interface IqrfEmbedCoordinatorBackupRequest100 {
   /**
    * Embedded peripheral Coordinator - Backup request.
    */
-  mType: "iqrfEmbedCoordinatorBackup";
+  mType: "iqrfEmbedCoordinator_Backup";
   data: {
     /**
      * Message identification for binding request with response.
@@ -1658,7 +1658,7 @@ export interface IqrfEmbedCoordinatorBackupResponse100 {
   /**
    * Embedded peripheral Coordinator - Backup response.
    */
-  mType: "iqrfEmbedCoordinatorBackup";
+  mType: "iqrfEmbedCoordinator_Backup";
   data: {
     /**
      * Message identification for binding request with response.
@@ -1740,7 +1740,7 @@ export interface IqrfEmbedCoordinatorBondedDevicesRequest100 {
   /**
    * Embedded peripheral Coordinator - Get Bonded Devices request.
    */
-  mType: "iqrfEmbedCoordinatorBondedDevices";
+  mType: "iqrfEmbedCoordinator_BondedDevices";
   data: {
     /**
      * Message identification for binding request with response.
@@ -1779,7 +1779,7 @@ export interface IqrfEmbedCoordinatorBondedDevicesResponse100 {
   /**
    * Embedded peripheral Coordinator - Get Bonded Devices response.
    */
-  mType: "iqrfEmbedCoordinatorBondedDevices";
+  mType: "iqrfEmbedCoordinator_BondedDevices";
   data: {
     /**
      * Message identification for binding request with response.
@@ -1861,7 +1861,7 @@ export interface IqrfEmbedCoordinatorBondNodeRequest100 {
   /**
    * Embedded peripheral Coordinator - Bond Node request.
    */
-  mType: "iqrfEmbedCoordinatorBondNode";
+  mType: "iqrfEmbedCoordinator_BondNode";
   data: {
     /**
      * Message identification for binding request with response.
@@ -1908,7 +1908,7 @@ export interface IqrfEmbedCoordinatorBondNodeResponse100 {
   /**
    * Embedded peripheral Coordinator - Bond Node response.
    */
-  mType: "iqrfEmbedCoordinatorBondNode";
+  mType: "iqrfEmbedCoordinator_BondNode";
   data: {
     /**
      * Message identification for binding request with response.
@@ -1994,7 +1994,7 @@ export interface IqrfEmbedCoordinatorClearAllBondsRequest100 {
   /**
    * Embedded peripheral Coordinator - Clear All Bonds request.
    */
-  mType: "iqrfEmbedCoordinatorClearAllBonds";
+  mType: "iqrfEmbedCoordinator_ClearAllBonds";
   data: {
     /**
      * Message identification for binding request with response.
@@ -2033,7 +2033,7 @@ export interface IqrfEmbedCoordinatorClearAllBondsResponse100 {
   /**
    * Embedded peripheral Coordinator - Clear All Bonds response.
    */
-  mType: "iqrfEmbedCoordinatorClearAllBonds";
+  mType: "iqrfEmbedCoordinator_ClearAllBonds";
   data: {
     /**
      * Message identification for binding request with response.
@@ -2111,7 +2111,7 @@ export interface IqrfEmbedCoordinatorClearRemotelyBondedMidRequest100 {
   /**
    * Embedded peripheral Coordinator - Clear Remotely Bonded Module ID request.
    */
-  mType: "iqrfEmbedCoordinatorClearRemotelyBondedMid";
+  mType: "iqrfEmbedCoordinator_ClearRemotelyBondedMid";
   data: {
     /**
      * Message identification for binding request with response.
@@ -2150,7 +2150,7 @@ export interface IqrfEmbedCoordinatorClearRemotelyBondedMidResponse100 {
   /**
    * Embedded peripheral Coordinator - Clear Remotely Bonded Module ID response.
    */
-  mType: "iqrfEmbedCoordinatorClearRemotelyBondedMid";
+  mType: "iqrfEmbedCoordinator_ClearRemotelyBondedMid";
   data: {
     /**
      * Message identification for binding request with response.
@@ -2228,7 +2228,7 @@ export interface IqrfEmbedCoordinatorDiscoveredDevicesRequest100 {
   /**
    * Embedded peripheral Coordinator - Get Discovered Nodes request.
    */
-  mType: "iqrfEmbedCoordinatorDiscoveredDevices";
+  mType: "iqrfEmbedCoordinator_DiscoveredDevices";
   data: {
     /**
      * Message identification for binding request with response.
@@ -2267,7 +2267,7 @@ export interface IqrfEmbedCoordinatorDiscoveredDevicesResponse100 {
   /**
    * Embedded peripheral Coordinator - Get Bonded Nodes response.
    */
-  mType: "iqrfEmbedCoordinatorDiscoveredDevices";
+  mType: "iqrfEmbedCoordinator_DiscoveredDevices";
   data: {
     /**
      * Message identification for binding request with response.
@@ -2349,7 +2349,7 @@ export interface IqrfEmbedCoordinatorDiscoveryRequest100 {
   /**
    * Embedded peripheral Coordinator - Discovery request.
    */
-  mType: "iqrfEmbedCoordinatorDiscovery";
+  mType: "iqrfEmbedCoordinator_Discovery";
   data: {
     /**
      * Message identification for binding request with response.
@@ -2396,7 +2396,7 @@ export interface IqrfEmbedCoordinatorDiscoveryResponse100 {
   /**
    * Embedded peripheral Coordinator - Discovery response.
    */
-  mType: "iqrfEmbedCoordinatorDiscovery";
+  mType: "iqrfEmbedCoordinator_Discovery";
   data: {
     /**
      * Message identification for binding request with response.
@@ -2478,7 +2478,7 @@ export interface IqrfEmbedCoordinatorDiscoveryDataRequest100 {
   /**
    * Embedded peripheral Coordinator - Discovery Data request.
    */
-  mType: "iqrfEmbedCoordinatorDiscoveryData";
+  mType: "iqrfEmbedCoordinator_DiscoveryData";
   data: {
     /**
      * Message identification for binding request with response.
@@ -2521,7 +2521,7 @@ export interface IqrfEmbedCoordinatorDiscoveryDataResponse100 {
   /**
    * Embedded peripheral Coordinator - Discovery Data response.
    */
-  mType: "iqrfEmbedCoordinatorDiscoveryData";
+  mType: "iqrfEmbedCoordinator_DiscoveryData";
   data: {
     /**
      * Message identification for binding request with response.
@@ -2607,7 +2607,7 @@ export interface IqrfEmbedCoordinatorEnableRemoteBondingRequest100 {
   /**
    * Embedded peripheral Coordinator - Enable Remote Bonding request.
    */
-  mType: "iqrfEmbedCoordinatorEnableRemoteBonding";
+  mType: "iqrfEmbedCoordinator_EnableRemoteBonding";
   data: {
     /**
      * Message identification for binding request with response.
@@ -2658,7 +2658,7 @@ export interface IqrfEmbedCoordinatorEnableRemoteBondingResponse100 {
   /**
    * Embedded peripheral Coordinator - Enable Remote Bonding request.
    */
-  mType: "iqrfEmbedCoordinatorEnableRemoteBonding";
+  mType: "iqrfEmbedCoordinator_EnableRemoteBonding";
   data: {
     /**
      * Message identification for binding request with response.
@@ -2740,7 +2740,7 @@ export interface IqrfEmbedCoordinatorReadRemotelyBondedMidRequest100 {
   /**
    * Embedded peripheral Coordinator - Read Remotely Bonded Module ID request.
    */
-  mType: "iqrfEmbedCoordinatorReadRemotelyBondedMid";
+  mType: "iqrfEmbedCoordinator_ReadRemotelyBondedMid";
   data: {
     /**
      * Message identification for binding request with response.
@@ -2779,7 +2779,7 @@ export interface IqrfEmbedCoordinatorReadRemotelyBondedMidResponse100 {
   /**
    * Embedded peripheral Coordinator - Read Remotely Bonded Module ID response.
    */
-  mType: "iqrfEmbedCoordinatorReadRemotelyBondedMid";
+  mType: "iqrfEmbedCoordinator_ReadRemotelyBondedMid";
   data: {
     /**
      * Message identification for binding request with response.
@@ -2875,7 +2875,7 @@ export interface IqrfEmbedCoordinatorRebondRequest100 {
   /**
    * Embedded peripheral Coordinator - Rebond request.
    */
-  mType: "iqrfEmbedCoordinatorRebond";
+  mType: "iqrfEmbedCoordinator_Rebond";
   data: {
     /**
      * Message identification for binding request with response.
@@ -2918,7 +2918,7 @@ export interface IqrfEmbedCoordinatorRebondResponse100 {
   /**
    * Embedded peripheral Coordinator - Rebond request.
    */
-  mType: "iqrfEmbedCoordinatorRebond";
+  mType: "iqrfEmbedCoordinator_Rebond";
   data: {
     /**
      * Message identification for binding request with response.
@@ -3004,7 +3004,7 @@ export interface IqrfEmbedCoordinatorRemoveBondRequest100 {
   /**
    * Embedded peripheral Coordinator - Remove Bond request.
    */
-  mType: "iqrfEmbedCoordinatorRemoveBond";
+  mType: "iqrfEmbedCoordinator_RemoveBond";
   data: {
     /**
      * Message identification for binding request with response.
@@ -3047,7 +3047,7 @@ export interface IqrfEmbedCoordinatorRemoveBondResponse100 {
   /**
    * Embedded peripheral Coordinator - Remove Bond response.
    */
-  mType: "iqrfEmbedCoordinatorRemoveBond";
+  mType: "iqrfEmbedCoordinator_RemoveBond";
   data: {
     /**
      * Message identification for binding request with response.
@@ -3133,7 +3133,7 @@ export interface IqrfEmbedCoordinatorRestoreRequest100 {
   /**
    * Embedded peripheral Coordinator - Restore request.
    */
-  mType: "iqrfEmbedCoordinatorRestore";
+  mType: "iqrfEmbedCoordinator_Restore";
   data: {
     /**
      * Message identification for binding request with response.
@@ -3176,7 +3176,7 @@ export interface IqrfEmbedCoordinatorRestoreResponse100 {
   /**
    * Embedded peripheral Coordinator - Restore response.
    */
-  mType: "iqrfEmbedCoordinatorRestore";
+  mType: "iqrfEmbedCoordinator_Restore";
   data: {
     /**
      * Message identification for binding request with response.
@@ -3258,7 +3258,7 @@ export interface IqrfEmbedCoordinatorSetDpaParamsRequest100 {
   /**
    * Embedded peripheral Coordinator - Set Dpa Params request.
    */
-  mType: "iqrfEmbedCoordinatorSetDpaParams";
+  mType: "iqrfEmbedCoordinator_SetDpaParams";
   data: {
     /**
      * Message identification for binding request with response.
@@ -3309,7 +3309,7 @@ export interface IqrfEmbedCoordinatorSetDpaParamsResponse100 {
   /**
    * Embedded peripheral Coordinator - Set Dpa Params response.
    */
-  mType: "iqrfEmbedCoordinatorSetDpaParams";
+  mType: "iqrfEmbedCoordinator_SetDpaParams";
   data: {
     /**
      * Message identification for binding request with response.
@@ -3403,7 +3403,7 @@ export interface IqrfEmbedCoordinatorSetHopsRequest100 {
   /**
    * Embedded peripheral Coordinator - Set Hops request.
    */
-  mType: "iqrfEmbedCoordinatorSetHops";
+  mType: "iqrfEmbedCoordinator_SetHops";
   data: {
     /**
      * Message identification for binding request with response.
@@ -3450,7 +3450,7 @@ export interface IqrfEmbedCoordinatorSetHopsResponse100 {
   /**
    * Embedded peripheral Coordinator - Set Hops response.
    */
-  mType: "iqrfEmbedCoordinatorSetHops";
+  mType: "iqrfEmbedCoordinator_SetHops";
   data: {
     /**
      * Message identification for binding request with response.
@@ -3540,7 +3540,7 @@ export interface IqrfEmbedCoordinatorSmartConnectRequest100 {
   /**
    * Embedded peripheral Coordinator - Smart Connect request.
    */
-  mType: "iqrfEmbedCoordinatorSmartConnect";
+  mType: "iqrfEmbedCoordinator_SmartConnect";
   data: {
     /**
      * Message identification for binding request with response.
@@ -3607,7 +3607,7 @@ export interface IqrfEmbedCoordinatorSmartConnectResponse100 {
   /**
    * Embedded peripheral Coordinator - Smart Connect response.
    */
-  mType: "iqrfEmbedCoordinatorSmartConnect";
+  mType: "iqrfEmbedCoordinator_SmartConnect";
   data: {
     /**
      * Message identification for binding request with response.
@@ -3697,7 +3697,7 @@ export interface IqrfEmbedEeepromReadRequest100 {
   /**
    * Embedded peripheral Memory - Read request.
    */
-  mType: "iqrfEmbedEeepromRead";
+  mType: "iqrfEmbedEeeprom_Read";
   data: {
     /**
      * Message identification for binding request with response.
@@ -3744,7 +3744,7 @@ export interface IqrfEmbedEeepromReadResponse100 {
   /**
    * Embedded peripheral Memory - Read response.
    */
-  mType: "iqrfEmbedEeepromRead";
+  mType: "iqrfEmbedEeeprom_Read";
   data: {
     /**
      * Message identification for binding request with response.
@@ -3830,7 +3830,7 @@ export interface IqrfEmbedEeepromWriteRequest100 {
   /**
    * Embedded peripheral Memory - Write request.
    */
-  mType: "iqrfEmbedEeepromWrite";
+  mType: "iqrfEmbedEeeprom_Write";
   data: {
     /**
      * Message identification for binding request with response.
@@ -3877,7 +3877,7 @@ export interface IqrfEmbedEeepromWriteResponse100 {
   /**
    * Embedded peripheral Memory - Write response.
    */
-  mType: "iqrfEmbedEeepromWrite";
+  mType: "iqrfEmbedEeeprom_Write";
   data: {
     /**
      * Message identification for binding request with response.
@@ -3959,7 +3959,7 @@ export interface IqrfEmbedEepromReadRequest100 {
   /**
    * Embedded peripheral Memory - Read request.
    */
-  mType: "iqrfEmbedEepromRead";
+  mType: "iqrfEmbedEeprom_Read";
   data: {
     /**
      * Message identification for binding request with response.
@@ -4006,7 +4006,7 @@ export interface IqrfEmbedEepromReadResponse100 {
   /**
    * Embedded peripheral Memory - Read response.
    */
-  mType: "iqrfEmbedEepromRead";
+  mType: "iqrfEmbedEeprom_Read";
   data: {
     /**
      * Message identification for binding request with response.
@@ -4092,7 +4092,7 @@ export interface IqrfEmbedEepromWriteRequest100 {
   /**
    * Embedded peripheral Memory - Write request.
    */
-  mType: "iqrfEmbedEepromWrite";
+  mType: "iqrfEmbedEeprom_Write";
   data: {
     /**
      * Message identification for binding request with response.
@@ -4139,7 +4139,7 @@ export interface IqrfEmbedEepromWriteResponse100 {
   /**
    * Embedded peripheral Memory - Write response.
    */
-  mType: "iqrfEmbedEepromWrite";
+  mType: "iqrfEmbedEeprom_Write";
   data: {
     /**
      * Message identification for binding request with response.
@@ -4221,7 +4221,7 @@ export interface IqrfEmbedExploreEnumerateRequest100 {
   /**
    * Embedded peripheral Explore - Enumeration request.
    */
-  mType: "iqrfEmbedExploreEnumerate";
+  mType: "iqrfEmbedExplore_Enumerate";
   data: {
     /**
      * Message identification for binding request with response.
@@ -4256,7 +4256,7 @@ export interface IqrfEmbedExploreEnumerateResponse100 {
   /**
    * Embedded peripheral Explore - Enumeration response.
    */
-  mType: "iqrfEmbedExploreEnumerate";
+  mType: "iqrfEmbedExplore_Enumerate";
   data: {
     /**
      * Message identification for binding request with response.
@@ -4362,7 +4362,7 @@ export interface IqrfEmbedExploreMorePeripheralsInformationRequest100 {
   /**
    * Embedded peripheral Explore - More Peripheral Information request.
    */
-  mType: "iqrfEmbedExploreMorePeripheralsInformation";
+  mType: "iqrfEmbedExplore_MorePeripheralsInformation";
   data: {
     /**
      * Message identification for binding request with response.
@@ -4401,7 +4401,7 @@ export interface IqrfEmbedExploreMorePeripheralsInformationResponse100 {
   /**
    * Embedded peripheral Explore - More Peripheral Information response.
    */
-  mType: "iqrfEmbedExploreMorePerInfo";
+  mType: "iqrfEmbedExplore_MorePerInfo";
   data: {
     /**
      * Message identification for binding request with response.
@@ -4505,7 +4505,7 @@ export interface IqrfEmbedExplorePeripheralInformationRequest100 {
   /**
    * Embedded peripheral Explore - Peripheral Information request.
    */
-  mType: "iqrfEmbedExplorePeripheralInformation";
+  mType: "iqrfEmbedExplore_PeripheralInformation";
   data: {
     /**
      * Message identification for binding request with response.
@@ -4544,7 +4544,7 @@ export interface IqrfEmbedExplorePeripheralInformationResponse100 {
   /**
    * Embedded peripheral Explore - Peripheral Information response.
    */
-  mType: "iqrfEmbedExplorePeripheralInformation";
+  mType: "iqrfEmbedExplore_PeripheralInformation";
   data: {
     /**
      * Message identification for binding request with response.
@@ -4642,7 +4642,7 @@ export interface IqrfEmbedFrcExtraResultRequest100 {
   /**
    * Embedded peripheral FRC - Extra Result request.
    */
-  mType: "iqrfEmbedFrcExtraResult";
+  mType: "iqrfEmbedFrc_ExtraResult";
   data: {
     /**
      * Message identification for binding request with response.
@@ -4681,7 +4681,7 @@ export interface IqrfEmbedFrcExtraResultResponse100 {
   /**
    * Embedded peripheral FRC - Extra Result response.
    */
-  mType: "iqrfEmbedFrcExtraResult";
+  mType: "iqrfEmbedFrc_ExtraResult";
   data: {
     /**
      * Message identification for binding request with response.
@@ -4767,7 +4767,7 @@ export interface IqrfEmbedFrcSendRequest100 {
   /**
    * Embedded peripheral FRC - Send request.
    */
-  mType: "iqrfEmbedFrcSend";
+  mType: "iqrfEmbedFrc_Send";
   data: {
     /**
      * Message identification for binding request with response.
@@ -4814,7 +4814,7 @@ export interface IqrfEmbedFrcSendResponse100 {
   /**
    * Embedded peripheral FRC - Send response.
    */
-  mType: "iqrfEmbedFrcSend";
+  mType: "iqrfEmbedFrc_Send";
   data: {
     /**
      * Message identification for binding request with response.
@@ -4904,7 +4904,7 @@ export interface IqrfEmbedFrcSendSelectiveRequest100 {
   /**
    * Embedded peripheral FRC - Send Selective request.
    */
-  mType: "iqrfEmbedFrcSendSelective";
+  mType: "iqrfEmbedFrc_SendSelective";
   data: {
     /**
      * Message identification for binding request with response.
@@ -4955,7 +4955,7 @@ export interface IqrfEmbedFrcSendSelectiveResponse100 {
   /**
    * Embedded peripheral FRC - Send Selective response.
    */
-  mType: "iqrfEmbedFrcSendSelective";
+  mType: "iqrfEmbedFrc_SendSelective";
   data: {
     /**
      * Message identification for binding request with response.
@@ -5045,7 +5045,7 @@ export interface IqrfEmbedFrcSetParamsRequest100 {
   /**
    * Embedded peripheral FRC - Set Params request.
    */
-  mType: "iqrfEmbedFrcSetParams";
+  mType: "iqrfEmbedFrc_SetParams";
   data: {
     /**
      * Message identification for binding request with response.
@@ -5088,7 +5088,7 @@ export interface IqrfEmbedFrcSetParamsResponse100 {
   /**
    * Embedded peripheral FRC - Set Params response.
    */
-  mType: "iqrfEmbedFrcSetParams";
+  mType: "iqrfEmbedFrc_SetParams";
   data: {
     /**
      * Message identification for binding request with response.
@@ -5174,7 +5174,7 @@ export interface IqrfEmbedIoDirectionRequest100 {
   /**
    * Embedded peripheral IO - Direction request.
    */
-  mType: "iqrfEmbedIoDir";
+  mType: "iqrfEmbedIo_Direction";
   data: {
     /**
      * Message identification for binding request with response.
@@ -5231,7 +5231,7 @@ export interface IqrfEmbedIoDirectionResponse100 {
   /**
    * Embedded peripheral IO - Direction response.
    */
-  mType: "iqrfEmbedIoDir";
+  mType: "iqrfEmbedIo_Direction";
   data: {
     /**
      * Message identification for binding request with response.
@@ -5313,7 +5313,7 @@ export interface IqrfEmbedIoGetRequest100 {
   /**
    * Embedded peripheral IO - Get request.
    */
-  mType: "iqrfEmbedIoGet";
+  mType: "iqrfEmbedIo_Get";
   data: {
     /**
      * Message identification for binding request with response.
@@ -5352,7 +5352,7 @@ export interface IqrfEmbedIoGetResponse100 {
   /**
    * Embedded peripheral IO - Get response.
    */
-  mType: "iqrfEmbedIoGet";
+  mType: "iqrfEmbedIo_Get";
   data: {
     /**
      * Message identification for binding request with response.
@@ -5452,7 +5452,7 @@ export interface IqrfEmbedIoSetRequest100 {
   /**
    * Embedded peripheral IO - Set request.
    */
-  mType: "iqrfEmbedIoSet";
+  mType: "iqrfEmbedIo_Set";
   data: {
     /**
      * Message identification for binding request with response.
@@ -5509,7 +5509,7 @@ export interface IqrfEmbedIoSetResponse100 {
   /**
    * Embedded peripheral IO - Set response.
    */
-  mType: "iqrfEmbedIoSet";
+  mType: "iqrfEmbedIo_Set";
   data: {
     /**
      * Message identification for binding request with response.
@@ -5591,7 +5591,7 @@ export interface IqrfEmbedLedgGetRequest100 {
   /**
    * Embedded peripheral Ledg - Get request.
    */
-  mType: "iqrfEmbedLedgGet";
+  mType: "iqrfEmbedLedg_Get";
   data: {
     /**
      * Message identification for binding request with response.
@@ -5630,7 +5630,7 @@ export interface IqrfEmbedLedgGetResponse100 {
   /**
    * Embedded peripheral Ledg - Get request.
    */
-  mType: "iqrfEmbedLedgGet";
+  mType: "iqrfEmbedLedg_Get";
   data: {
     /**
      * Message identification for binding request with response.
@@ -5716,7 +5716,7 @@ export interface IqrfEmbedLedgPulseRequest100 {
   /**
    * Embedded peripheral Ledg - Pulse request.
    */
-  mType: "iqrfEmbedLedgPulse";
+  mType: "iqrfEmbedLedg_Pulse";
   data: {
     /**
      * Message identification for binding request with response.
@@ -5755,7 +5755,7 @@ export interface IqrfEmbedLedgPulseResponse100 {
   /**
    * Embedded peripheral Ledg - Pulse response.
    */
-  mType: "iqrfEmbedLedgPulse";
+  mType: "iqrfEmbedLedg_Pulse";
   data: {
     /**
      * Message identification for binding request with response.
@@ -5837,7 +5837,7 @@ export interface IqrfEmbedLedgSetRequest100 {
   /**
    * Embedded peripheral Ledg - Set request.
    */
-  mType: "iqrfEmbedLedgSet";
+  mType: "iqrfEmbedLedg_Set";
   data: {
     /**
      * Message identification for binding request with response.
@@ -5880,7 +5880,7 @@ export interface IqrfEmbedLedgSetResponse100 {
   /**
    * Embedded peripheral Ledg - Set response.
    */
-  mType: "iqrfEmbedLedgSet";
+  mType: "iqrfEmbedLedg_Set";
   data: {
     /**
      * Message identification for binding request with response.
@@ -5962,7 +5962,7 @@ export interface IqrfEmbedLedrGetRequest100 {
   /**
    * Embedded peripheral Ledr - Get request.
    */
-  mType: "iqrfEmbedLedrGet";
+  mType: "iqrfEmbedLedr_Get";
   data: {
     /**
      * Message identification for binding request with response.
@@ -6001,7 +6001,7 @@ export interface IqrfEmbedLedrGetResponse100 {
   /**
    * Embedded peripheral Ledr - Get request.
    */
-  mType: "iqrfEmbedLedrGet";
+  mType: "iqrfEmbedLedr_Get";
   data: {
     /**
      * Message identification for binding request with response.
@@ -6087,7 +6087,7 @@ export interface IqrfEmbedLedrPulseRequest100 {
   /**
    * Embedded peripheral Ledr - Pulse request.
    */
-  mType: "iqrfEmbedLedrPulse";
+  mType: "iqrfEmbedLedr_Pulse";
   data: {
     /**
      * Message identification for binding request with response.
@@ -6126,7 +6126,7 @@ export interface IqrfEmbedLedrPulseResponse100 {
   /**
    * Embedded peripheral Ledr - Pulse response.
    */
-  mType: "iqrfEmbedLedrPulse";
+  mType: "iqrfEmbedLedr_Pulse";
   data: {
     /**
      * Message identification for binding request with response.
@@ -6208,7 +6208,7 @@ export interface IqrfEmbedLedrSetRequest100 {
   /**
    * Embedded peripheral Ledr - Set request.
    */
-  mType: "iqrfEmbedLedrSet";
+  mType: "iqrfEmbedLedr_Set";
   data: {
     /**
      * Message identification for binding request with response.
@@ -6251,7 +6251,7 @@ export interface IqrfEmbedLedrSetResponse100 {
   /**
    * Embedded peripheral Ledr - Set response.
    */
-  mType: "iqrfEmbedLedrSet";
+  mType: "iqrfEmbedLedr_Set";
   data: {
     /**
      * Message identification for binding request with response.
@@ -6333,7 +6333,7 @@ export interface IqrfEmbedNodeBackupRequest100 {
   /**
    * Embedded peripheral Node - Backup request.
    */
-  mType: "iqrfEmbedNodeBackup";
+  mType: "iqrfEmbedNode_Backup";
   data: {
     /**
      * Message identification for binding request with response.
@@ -6376,7 +6376,7 @@ export interface IqrfEmbedNodeBackupResponse100 {
   /**
    * Embedded peripheral Node - Backup response.
    */
-  mType: "iqrfEmbedNodeBackup";
+  mType: "iqrfEmbedNode_Backup";
   data: {
     /**
      * Message identification for binding request with response.
@@ -6462,7 +6462,7 @@ export interface IqrfEmbedNodeClearRemotelyBondedMidRequest100 {
   /**
    * Embedded peripheral Node - Clear Remotely Bonded Module ID request.
    */
-  mType: "iqrfEmbedNodeClearRemotelyBondedMid";
+  mType: "iqrfEmbedNode_ClearRemotelyBondedMid";
   data: {
     /**
      * Message identification for binding request with response.
@@ -6501,7 +6501,7 @@ export interface IqrfEmbedNodeClearRemotelyBondedMidResponse100 {
   /**
    * Embedded peripheral Node - Clear Remotely Bonded Module ID response.
    */
-  mType: "iqrfEmbedNodeClearRemotelyBondedMid";
+  mType: "iqrfEmbedNode_ClearRemotelyBondedMid";
   data: {
     /**
      * Message identification for binding request with response.
@@ -6583,7 +6583,7 @@ export interface IqrfEmbedNodeEnableRemoteBondRequest100 {
   /**
    * Embedded peripheral Node - Enable Remote Bond request.
    */
-  mType: "iqrfEmbedNodeEnableRemoteBond";
+  mType: "iqrfEmbedNode_EnableRemoteBond";
   data: {
     /**
      * Message identification for binding request with response.
@@ -6634,7 +6634,7 @@ export interface IqrfEmbedNodeEnableRemoteBondResponse100 {
   /**
    * Embedded peripheral Node - Enable Remote Bond response.
    */
-  mType: "iqrfEmbedNodeEnableRemoteBond";
+  mType: "iqrfEmbedNode_EnableRemoteBond";
   data: {
     /**
      * Message identification for binding request with response.
@@ -6716,7 +6716,7 @@ export interface IqrfEmbedNodeReadRequest100 {
   /**
    * Embedded peripheral Node - Read request.
    */
-  mType: "iqrfEmbedNodeRead";
+  mType: "iqrfEmbedNode_Read";
   data: {
     /**
      * Message identification for binding request with response.
@@ -6755,7 +6755,7 @@ export interface IqrfEmbedNodeReadResponse100 {
   /**
    * Embedded peripheral Node - Read response.
    */
-  mType: "iqrfEmbedNodeRead";
+  mType: "iqrfEmbedNode_Read";
   data: {
     /**
      * Message identification for binding request with response.
@@ -6880,7 +6880,7 @@ export interface IqrfEmbedNodeReadRemotelyBondedMidRequest100 {
   /**
    * Embedded peripheral Node - Read Remotely Bonded Mid request.
    */
-  mType: "iqrfEmbedNodeReadRemotelyBondedMid";
+  mType: "iqrfEmbedNode_ReadRemotelyBondedMid";
   data: {
     /**
      * Message identification for binding request with response.
@@ -6919,7 +6919,7 @@ export interface IqrfEmbedNodeReadRemotelyBondedMidResponse100 {
   /**
    * Embedded peripheral Coordinator - Read Remotely Bonded Module ID response.
    */
-  mType: "iqrfEmbedNodeReadRemotelyBondedMid";
+  mType: "iqrfEmbedNode_ReadRemotelyBondedMid";
   data: {
     /**
      * Message identification for binding request with response.
@@ -7015,7 +7015,7 @@ export interface IqrfEmbedNodeRemoveBondRequest100 {
   /**
    * Embedded peripheral Node - Remove Bond Address request.
    */
-  mType: "iqrfEmbedNodeRemoveBond";
+  mType: "iqrfEmbedNode_RemoveBond";
   data: {
     /**
      * Message identification for binding request with response.
@@ -7054,7 +7054,7 @@ export interface IqrfEmbedNodeRemoveBondResponse100 {
   /**
    * Embedded peripheral Node - Remove Bond Address response.
    */
-  mType: "iqrfEmbedNodeRemoveBond";
+  mType: "iqrfEmbedNode_RemoveBond";
   data: {
     /**
      * Message identification for binding request with response.
@@ -7136,7 +7136,7 @@ export interface IqrfEmbedNodeRestoreRequest100 {
   /**
    * Embedded peripheral Node - Restore request.
    */
-  mType: "iqrfEmbedNodeRestore";
+  mType: "iqrfEmbedNode_Restore";
   data: {
     /**
      * Message identification for binding request with response.
@@ -7182,7 +7182,7 @@ export interface IqrfEmbedNodeRestoreResponse100 {
   /**
    * Embedded peripheral Node - Restore response.
    */
-  mType: "iqrfEmbedNodeRestore";
+  mType: "iqrfEmbedNode_Restore";
   data: {
     /**
      * Message identification for binding request with response.
@@ -7264,7 +7264,7 @@ export interface IqrfEmbedOsBatchRequest100 {
   /**
    * Embedded peripheral OS - Batch request.
    */
-  mType: "iqrfEmbedOsBatch";
+  mType: "iqrfEmbedOs_Batch";
   data: {
     /**
      * Message identification for binding request with response.
@@ -7314,7 +7314,7 @@ export interface IqrfEmbedOsBatchResponse100 {
   /**
    * Embedded peripheral OS - Batch response.
    */
-  mType: "iqrfEmbedOsBatch";
+  mType: "iqrfEmbedOs_Batch";
   data: {
     /**
      * Message identification for binding request with response.
@@ -7396,7 +7396,7 @@ export interface IqrfEmbedOsInitResetRequest100 {
   /**
    * Embedded peripheral OS - Reset request.
    */
-  mType: "iqrfEmbedOsReset";
+  mType: "iqrfEmbedOs_Reset";
   data: {
     /**
      * Message identification for binding request with response.
@@ -7435,7 +7435,7 @@ export interface IqrfEmbedOsInitResetResponse100 {
   /**
    * Embedded peripheral OS - Reset response.
    */
-  mType: "iqrfEmbedOsReset";
+  mType: "iqrfEmbedOs_Reset";
   data: {
     /**
      * Message identification for binding request with response.
@@ -7517,7 +7517,7 @@ export interface IqrfEmbedOsInitRestartRequest100 {
   /**
    * Embedded peripheral OS - Restart request.
    */
-  mType: "iqrfEmbedOsRestart";
+  mType: "iqrfEmbedOs_Restart";
   data: {
     /**
      * Message identification for binding request with response.
@@ -7556,7 +7556,7 @@ export interface IqrfEmbedOsInitRestartResponse100 {
   /**
    * Embedded peripheral OS - Restart response.
    */
-  mType: "iqrfEmbedOsRestart";
+  mType: "iqrfEmbedOs_Restart";
   data: {
     /**
      * Message identification for binding request with response.
@@ -7638,7 +7638,7 @@ export interface IqrfEmbedOsLoadCodeRequest100 {
   /**
    * Embedded peripheral OS - Load Code request.
    */
-  mType: "iqrfEmbedOsLoadCode";
+  mType: "iqrfEmbedOs_LoadCode";
   data: {
     /**
      * Message identification for binding request with response.
@@ -7693,7 +7693,7 @@ export interface IqrfEmbedOsLoadCodeResponse100 {
   /**
    * Embedded peripheral OS - Load Code response.
    */
-  mType: "iqrfEmbedOsLoadCode";
+  mType: "iqrfEmbedOs_LoadCode";
   data: {
     /**
      * Message identification for binding request with response.
@@ -7779,7 +7779,7 @@ export interface IqrfEmbedOsReadRequest100 {
   /**
    * Embedded peripheral OS - Read request.
    */
-  mType: "iqrfEmbedOsRead";
+  mType: "iqrfEmbedOs_Read";
   data: {
     /**
      * Message identification for binding request with response.
@@ -7818,7 +7818,7 @@ export interface IqrfEmbedOsReadResponse100 {
   /**
    * Embedded peripheral OS - Read response.
    */
-  mType: "iqrfEmbedOsRead";
+  mType: "iqrfEmbedOs_Read";
   data: {
     /**
      * Message identification for binding request with response.
@@ -7932,7 +7932,7 @@ export interface IqrfEmbedOsReadResponse110 {
   /**
    * Embedded peripheral OS - Read response.
    */
-  mType: "iqrfEmbedOsRead";
+  mType: "iqrfEmbedOs_Read";
   data: {
     /**
      * Message identification for binding request with response.
@@ -8050,7 +8050,7 @@ export interface IqrfEmbedOsReadCfgRequest100 {
   /**
    * Embedded peripheral OS - Read Configuration request.
    */
-  mType: "iqrfEmbedOsReadCfg";
+  mType: "iqrfEmbedOs_ReadCfg";
   data: {
     /**
      * Message identification for binding request with response.
@@ -8089,7 +8089,7 @@ export interface IqrfEmbedOsReadCfgResponse100 {
   /**
    * Embedded peripheral OS - Read Configuration response.
    */
-  mType: "iqrfEmbedOsReadCfg";
+  mType: "iqrfEmbedOs_ReadCfg";
   data: {
     /**
      * Message identification for binding request with response.
@@ -8184,7 +8184,7 @@ export interface IqrfEmbedOsRunRfpgmRequest100 {
   /**
    * Embedded peripheral OS - Run Rfpgm request.
    */
-  mType: "iqrfEmbedOsRunRfpgm";
+  mType: "iqrfEmbedOs_RunRfpgm";
   data: {
     /**
      * Message identification for binding request with response.
@@ -8223,7 +8223,7 @@ export interface IqrfEmbedOsRunRfpgmResponse100 {
   /**
    * Embedded peripheral OS - Run Rfpgm response.
    */
-  mType: "iqrfEmbedOsRunRfpgm";
+  mType: "iqrfEmbedOs_RunRfpgm";
   data: {
     /**
      * Message identification for binding request with response.
@@ -8305,7 +8305,7 @@ export interface IqrfEmbedOsSelectiveBatchRequest100 {
   /**
    * Embedded peripheral OS - Selective Batch request.
    */
-  mType: "iqrfEmbedOsSelectiveBatch";
+  mType: "iqrfEmbedOs_SelectiveBatch";
   data: {
     /**
      * Message identification for binding request with response.
@@ -8359,7 +8359,7 @@ export interface IqrfEmbedOsSelectiveBatchResponse100 {
   /**
    * Embedded peripheral OS - Selective Batch response.
    */
-  mType: "iqrfEmbedOsSelectiveBatch";
+  mType: "iqrfEmbedOs_SelectiveBatch";
   data: {
     /**
      * Message identification for binding request with response.
@@ -8441,7 +8441,7 @@ export interface IqrfEmbedOsSetSecurityRequest100 {
   /**
    * Embedded peripheral OS - Set Security request.
    */
-  mType: "iqrfEmbedOsSetSecurity";
+  mType: "iqrfEmbedOs_SetSecurity";
   data: {
     /**
      * Message identification for binding request with response.
@@ -8488,7 +8488,7 @@ export interface IqrfEmbedOsSetSecurityResponse100 {
   /**
    * Embedded peripheral OS - Set Security response.
    */
-  mType: "iqrfEmbedOsSetSecurity";
+  mType: "iqrfEmbedOs_SetSecurity";
   data: {
     /**
      * Message identification for binding request with response.
@@ -8570,7 +8570,7 @@ export interface IqrfEmbedOsSleepRequest100 {
   /**
    * Embedded peripheral OS - Sleep request.
    */
-  mType: "iqrfEmbedOsSleep";
+  mType: "iqrfEmbedOs_Sleep";
   data: {
     /**
      * Message identification for binding request with response.
@@ -8617,7 +8617,7 @@ export interface IqrfEmbedOsSleepResponse100 {
   /**
    * Embedded peripheral OS - Sleep response.
    */
-  mType: "iqrfEmbedOsSleep";
+  mType: "iqrfEmbedOs_Sleep";
   data: {
     /**
      * Message identification for binding request with response.
@@ -8699,7 +8699,7 @@ export interface IqrfEmbedOsWriteCfgRequest100 {
   /**
    * Embedded peripheral OS - Write Configuration request.
    */
-  mType: "iqrfEmbedOsWriteCfg";
+  mType: "iqrfEmbedOs_WriteCfg";
   data: {
     /**
      * Message identification for binding request with response.
@@ -8750,7 +8750,7 @@ export interface IqrfEmbedOsWriteCfgResponse100 {
   /**
    * Embedded peripheral OS - Write Configuration response.
    */
-  mType: "iqrfEmbedOsWriteCfg";
+  mType: "iqrfEmbedOs_WriteCfg";
   data: {
     /**
      * Message identification for binding request with response.
@@ -8832,7 +8832,7 @@ export interface IqrfEmbedOsWriteCfgByteRequest100 {
   /**
    * Embedded peripheral OS - Write Configuration Byte request.
    */
-  mType: "iqrfEmbedOsWriteCfgByte";
+  mType: "iqrfEmbedOs_WriteCfgByte";
   data: {
     /**
      * Message identification for binding request with response.
@@ -8886,7 +8886,7 @@ export interface IqrfEmbedOsWriteCfgByteResponse100 {
   /**
    * Embedded peripheral OS - Write Configuration Byte response.
    */
-  mType: "iqrfEmbedOsWriteCfgByte";
+  mType: "iqrfEmbedOs_WriteCfgByte";
   data: {
     /**
      * Message identification for binding request with response.
@@ -8968,7 +8968,7 @@ export interface IqrfEmbedRamReadRequest100 {
   /**
    * Embedded peripheral Memory - Read request.
    */
-  mType: "iqrfEmbedRamRead";
+  mType: "iqrfEmbedRam_Read";
   data: {
     /**
      * Message identification for binding request with response.
@@ -9015,7 +9015,7 @@ export interface IqrfEmbedRamReadResponse100 {
   /**
    * Embedded peripheral Memory - Read response.
    */
-  mType: "iqrfEmbedRamRead";
+  mType: "iqrfEmbedRam_Read";
   data: {
     /**
      * Message identification for binding request with response.
@@ -9101,7 +9101,7 @@ export interface IqrfEmbedRamWriteRequest100 {
   /**
    * Embedded peripheral Memory - Write request.
    */
-  mType: "iqrfEmbedRamWrite";
+  mType: "iqrfEmbedRam_Write";
   data: {
     /**
      * Message identification for binding request with response.
@@ -9148,7 +9148,7 @@ export interface IqrfEmbedRamWriteResponse100 {
   /**
    * Embedded peripheral Memory - Write response.
    */
-  mType: "iqrfEmbedRamWrite";
+  mType: "iqrfEmbedRam_Write";
   data: {
     /**
      * Message identification for binding request with response.
@@ -9230,7 +9230,7 @@ export interface IqrfEmbedSpiWriteReadRequest100 {
   /**
    * Embedded peripheral SPI - Write Read request.
    */
-  mType: "iqrfEmbedSpiWriteRead";
+  mType: "iqrfEmbedSpi_WriteRead";
   data: {
     /**
      * Message identification for binding request with response.
@@ -9277,7 +9277,7 @@ export interface IqrfEmbedSpiWriteReadResponse100 {
   /**
    * Embedded peripheral SPI - Write Read response.
    */
-  mType: "iqrfEmbedSpiWriteRead";
+  mType: "iqrfEmbedSpi_WriteRead";
   data: {
     /**
      * Message identification for binding request with response.
@@ -9363,7 +9363,7 @@ export interface IqrfEmbedThermometerReadRequest100 {
   /**
    * Embedded peripheral Thermometer - Read request.
    */
-  mType: "iqrfEmbedThermometerRead";
+  mType: "iqrfEmbedThermometer_Read";
   data: {
     /**
      * Message identification for binding request with response.
@@ -9402,7 +9402,7 @@ export interface IqrfEmbedThermometerReadResponse100 {
   /**
    * Embedded peripheral Thermometer - Read response.
    */
-  mType: "iqrfEmbedThermometerRead";
+  mType: "iqrfEmbedThermometer_Read";
   data: {
     /**
      * Message identification for binding request with response.
@@ -9488,7 +9488,7 @@ export interface IqrfEmbedUartClearWriteReadRequest100 {
   /**
    * Embedded peripheral UART - Clear Write Read request.
    */
-  mType: "iqrfEmbedUartClearWriteRead";
+  mType: "iqrfEmbedUart_ClearWriteRead";
   data: {
     /**
      * Message identification for binding request with response.
@@ -9535,7 +9535,7 @@ export interface IqrfEmbedUartClearWriteReadResponse100 {
   /**
    * Embedded peripheral UART - Clear Write Read response.
    */
-  mType: "iqrfEmbedUartClearWriteRead";
+  mType: "iqrfEmbedUart_ClearWriteRead";
   data: {
     /**
      * Message identification for binding request with response.
@@ -9621,7 +9621,7 @@ export interface IqrfEmbedUartCloseRequest100 {
   /**
    * Embedded peripheral UART - Close request.
    */
-  mType: "iqrfEmbedUartClose";
+  mType: "iqrfEmbedUart_Close";
   data: {
     /**
      * Message identification for binding request with response.
@@ -9660,7 +9660,7 @@ export interface IqrfEmbedUartCloseResponse100 {
   /**
    * Embedded peripheral UART - Close request.
    */
-  mType: "iqrfEmbedUartClose";
+  mType: "iqrfEmbedUart_Close";
   data: {
     /**
      * Message identification for binding request with response.
@@ -9742,7 +9742,7 @@ export interface IqrfEmbedUartOpenRequest100 {
   /**
    * Embedded peripheral UART - Open request.
    */
-  mType: "iqrfEmbedUartOpen";
+  mType: "iqrfEmbedUart_Open";
   data: {
     /**
      * Message identification for binding request with response.
@@ -9785,7 +9785,7 @@ export interface IqrfEmbedUartOpenResponse100 {
   /**
    * Embedded peripheral UART - Write Read response.
    */
-  mType: "iqrfEmbedUartOpen";
+  mType: "iqrfEmbedUart_Open";
   data: {
     /**
      * Message identification for binding request with response.
@@ -9867,7 +9867,7 @@ export interface IqrfEmbedUartWriteReadRequest100 {
   /**
    * Embedded peripheral UART - Write Read request.
    */
-  mType: "iqrfEmbedUartWriteRead";
+  mType: "iqrfEmbedUart_WriteRead";
   data: {
     /**
      * Message identification for binding request with response.
@@ -9914,7 +9914,7 @@ export interface IqrfEmbedUartWriteReadResponse100 {
   /**
    * Embedded peripheral UART - Write Read response.
    */
-  mType: "iqrfEmbedUartWriteRead";
+  mType: "iqrfEmbedUart_WriteRead";
   data: {
     /**
      * Message identification for binding request with response.
@@ -10000,7 +10000,7 @@ export interface IqrfLightDecrementPowerRequest100 {
   /**
    * Standard peripheral Light - Decrement Power request.
    */
-  mType: "iqrfLightDecrementPower";
+  mType: "iqrfLight_DecrementPower";
   data: {
     /**
      * Message identification for binding request with response.
@@ -10057,7 +10057,7 @@ export interface IqrfLightDecrementPowerResponse100 {
   /**
    * Standard peripheral Light - Decrement Power response.
    */
-  mType: "iqrfLightDecrementPower";
+  mType: "iqrfLight_DecrementPower";
   data: {
     /**
      * Message identification for binding request with response.
@@ -10143,7 +10143,7 @@ export interface IqrfLightEnumerateRequest100 {
   /**
    * Standard peripheral Light - Enumeration request.
    */
-  mType: "iqrfLightEnumerate";
+  mType: "iqrfLight_Enumerate";
   data: {
     /**
      * Message identification for binding request with response.
@@ -10182,7 +10182,7 @@ export interface IqrfLightEnumerateResponse100 {
   /**
    * Standard peripheral Light - Enumeration response.
    */
-  mType: "iqrfLightEnumerate";
+  mType: "iqrfLight_Enumerate";
   data: {
     /**
      * Message identification for binding request with response.
@@ -10268,7 +10268,7 @@ export interface IqrfLightIncrementPowerRequest100 {
   /**
    * Standard peripheral Light - Increment Power request.
    */
-  mType: "iqrfLightIncrementPower";
+  mType: "iqrfLight_IncrementPower";
   data: {
     /**
      * Message identification for binding request with response.
@@ -10325,7 +10325,7 @@ export interface IqrfLightIncrementPowerResponse100 {
   /**
    * Standard peripheral Light - Increment Power response.
    */
-  mType: "iqrfLightIncrementPower";
+  mType: "iqrfLight_IncrementPower";
   data: {
     /**
      * Message identification for binding request with response.
@@ -10411,7 +10411,7 @@ export interface IqrfLightSetPowerRequest100 {
   /**
    * Standard peripheral Light - Set Power request.
    */
-  mType: "iqrfLightSetPower";
+  mType: "iqrfLight_SetPower";
   data: {
     /**
      * Message identification for binding request with response.
@@ -10468,7 +10468,7 @@ export interface IqrfLightSetPowerResponse100 {
   /**
    * Standard peripheral Light - Set Power response.
    */
-  mType: "iqrfLightSetPower";
+  mType: "iqrfLight_SetPower";
   data: {
     /**
      * Message identification for binding request with response.
@@ -10804,7 +10804,7 @@ export interface IqrfSensorEnumerateRequest100 {
   /**
    * Standard peripheral Sensor - Enumeration request.
    */
-  mType: "iqrfSensorEnumerate";
+  mType: "iqrfSensor_Enumerate";
   data: {
     /**
      * Message identification for binding request with response.
@@ -10843,7 +10843,7 @@ export interface IqrfSensorEnumerateResponse100 {
   /**
    * Message type for IQRF standard communication.
    */
-  mType: "iqrfSensorEnumerate";
+  mType: "iqrfSensor_Enumerate";
   data: {
     /**
      * Message identification for binding request with response.
@@ -10951,7 +10951,7 @@ export interface IqrfSensorFrcRequest100 {
   /**
    * Standard peripheral Sensor - FRC request.
    */
-  mType: "iqrfSensorFrc";
+  mType: "iqrfSensor_Frc";
   data: {
     /**
      * Message identification for binding request with response.
@@ -11020,7 +11020,7 @@ export interface IqrfSensorFrcResponse100 {
   /**
    * Standard peripheral Sensor - FRC response.
    */
-  mType: "iqrfSensorFrc";
+  mType: "iqrfSensor_Frc";
   data: {
     /**
      * Message identification for binding request with response.
@@ -11130,7 +11130,7 @@ export interface IqrfSensorReadSensorsWithTypesRequest100 {
   /**
    * Standard peripheral Sensor - Read with Types request.
    */
-  mType: "iqrfSensorReadSensorsWithTypes";
+  mType: "iqrfSensor_ReadSensorsWithTypes";
   data: {
     /**
      * Message identification for binding request with response.
@@ -11196,7 +11196,7 @@ export interface IqrfSensorReadSensorsWithTypesResponse100 {
   /**
    * Standard peripheral Sensor - Read with Types response.
    */
-  mType: "iqrfSensorReadSensorsWithTypes";
+  mType: "iqrfSensor_ReadSensorsWithTypes";
   data: {
     /**
      * Message identification for binding request with response.
@@ -11304,7 +11304,7 @@ export interface MngDaemonModeRequest100 {
   /**
    * Daemon runtime configuration - Change the daemon mode request.
    */
-  mType: "mngDaemonMode";
+  mType: "mngDaemon_Mode";
   data: {
     /**
      * Message identification for binding request with response.
@@ -11335,7 +11335,7 @@ export interface MngDaemonModeResponse100 {
   /**
    * Daemon runtime configuration - Change the daemon mode response.
    */
-  mType: "mngDaemonMode";
+  mType: "mngDaemon_Mode";
   data: {
     /**
      * Message identification for binding request with response.
@@ -11374,7 +11374,7 @@ export interface MngDaemonRestartRequest100 {
   /**
    * Daemon runtime management - restart the daemon request.
    */
-  mType: "mngDaemonRestart";
+  mType: "mngDaemon_Restart";
   data: {
     /**
      * Message identification for binding request with response.
@@ -11405,7 +11405,7 @@ export interface MngDaemonRestartResponse100 {
   /**
    * Daemon runtime management - restart the daemon response.
    */
-  mType: "mngDaemonRestart";
+  mType: "mngDaemon_Restart";
   data: {
     /**
      * Message identification for binding request with response.
@@ -11444,7 +11444,7 @@ export interface MngSchedAddTaskRequest100 {
   /**
    * Scheduler management - Add Task request.
    */
-  mType: "mngSchedAddTask";
+  mType: "mngSched_AddTask";
   data: {
     /**
      * Message identification for binding request with response.
@@ -11483,7 +11483,7 @@ export interface MngSchedAddTaskResponse100 {
   /**
    * Scheduler management - Add Task response.
    */
-  mType: "mngSchedAddTask";
+  mType: "mngSched_AddTask";
   data: {
     /**
      * Message identification for binding request with response.
@@ -11526,7 +11526,7 @@ export interface MngSchedGetTaskRequest100 {
   /**
    * Scheduler management - Get Task request.
    */
-  mType: "mngSchedGetTask";
+  mType: "mngSched_GetTask";
   data: {
     /**
      * Message identification for binding request with response.
@@ -11561,7 +11561,7 @@ export interface MngSchedGetTaskResponse100 {
   /**
    * Scheduler management - Add Task response.
    */
-  mType: "mngSchedGetTask";
+  mType: "mngSched_GetTask";
   data: {
     /**
      * Message identification for binding request with response.
@@ -11608,7 +11608,7 @@ export interface MngSchedListRequest100 {
   /**
    * Scheduler management - List request.
    */
-  mType: "mngSchedList";
+  mType: "mngSched_List";
   data: {
     /**
      * Message identification for binding request with response.
@@ -11639,7 +11639,7 @@ export interface MngSchedListResponse100 {
   /**
    * Scheduler management - List response.
    */
-  mType: "mngSchedList";
+  mType: "mngSched_List";
   data: {
     /**
      * Message identification for binding request with response.
@@ -11689,7 +11689,7 @@ export interface MngSchedPerTaskRequest100 {
   /**
    * Scheduler management - Per Task request.
    */
-  mType: "mngSchedPerTask";
+  mType: "mngSched_PerTask";
   data: {
     /**
      * Message identification for binding request with response.
@@ -11732,7 +11732,7 @@ export interface MngSchedPerTaskResponse100 {
   /**
    * Scheduler management - Per Task response.
    */
-  mType: "mngSchedPerTask";
+  mType: "mngSched_PerTask";
   data: {
     /**
      * Message identification for binding request with response.
@@ -11775,7 +11775,7 @@ export interface MngSchedRemoveAllRequest100 {
   /**
    * Scheduler management - Remove All request.
    */
-  mType: "mngSchedRemoveAll";
+  mType: "mngSched_RemoveAll";
   data: {
     /**
      * Message identification for binding request with response.
@@ -11806,7 +11806,7 @@ export interface MngSchedRemoveAllResponse100 {
   /**
    * Scheduler management - Remove All response.
    */
-  mType: "mngSchedRemoveAll";
+  mType: "mngSched_RemoveAll";
   data: {
     /**
      * Message identification for binding request with response.
@@ -11845,7 +11845,7 @@ export interface MngSchedRemoveTaskRequest100 {
   /**
    * Scheduler management - Remove Task request.
    */
-  mType: "mngSchedRemoveTask";
+  mType: "mngSched_RemoveTask";
   data: {
     /**
      * Message identification for binding request with response.
@@ -11880,7 +11880,7 @@ export interface MngSchedRemoveTaskResponse100 {
   /**
    * Scheduler management - Remove Task response.
    */
-  mType: "mngSchedRemoveTask";
+  mType: "mngSched_RemoveTask";
   data: {
     /**
      * Message identification for binding request with response.
@@ -11919,7 +11919,7 @@ export interface MngSchedStartTaskRequest100 {
   /**
    * Scheduler management - Get Task request.
    */
-  mType: "mngSchedStartTask";
+  mType: "mngSched_StartTask";
   data: {
     /**
      * Message identification for binding request with response.
@@ -11954,7 +11954,7 @@ export interface MngSchedStartTaskResponse100 {
   /**
    * Scheduler management - Add Task response.
    */
-  mType: "mngSchedStartTask";
+  mType: "mngSched_StartTask";
   data: {
     /**
      * Message identification for binding request with response.
@@ -12001,7 +12001,7 @@ export interface MngSchedStopTaskRequest100 {
   /**
    * Scheduler management - Get Task request.
    */
-  mType: "mngSchedStopTask";
+  mType: "mngSched_StopTask";
   data: {
     /**
      * Message identification for binding request with response.
@@ -12036,7 +12036,7 @@ export interface MngSchedStopTaskResponse100 {
   /**
    * Scheduler management - Add Task response.
    */
-  mType: "mngSchedStopTask";
+  mType: "mngSched_StopTask";
   data: {
     /**
      * Message identification for binding request with response.

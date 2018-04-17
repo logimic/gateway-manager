@@ -6,6 +6,11 @@ export class Coordinator {
     protected ledG = false;
     protected ledR = false;
 
+    public switchG = false;
+    public switchR = false;
+
+    protected tmp = false;
+
     constructor(protected service: GatewayService) {
 
     }
@@ -14,22 +19,23 @@ export class Coordinator {
         return this.ledG;
     }
 
-    public setLedG (state: boolean): void {
-        this.ledG = state;
-    }
-
     public getLedR (): boolean {
         return this.ledR;
     }
 
-    public setLedR (state: boolean): void {
-        this.ledR = state;
+    public setData (msg: any) {
+
+        switch (msg.kind) {
+            case 'iqrfApi.IqrfEmbedLedgGetResponse100':
+                this.ledR = msg.data.rsp.onOff;
+            break;
+
+        }
     }
-
-    public reqSetLedG (state: boolean): void {
-
+    public setLedG (state: boolean): void {
+        /*
         const req: iqrfApi.IqrfEmbedLedgSetRequest100 = {
-            mType: 'iqrfEmbedLedgSet',
+            mType: 'iqrfEmbedLedg_Set',
             data: {
                 msgId: 'sss',
                 req: {
@@ -40,17 +46,26 @@ export class Coordinator {
         };
 
         this.service.send(req);
+
+        // Update status
+        window.setTimeout(() => this.reqLedG(), 20);
+        */
+       this.switchG = state;
+
+       window.setTimeout(() => this.easy(), 500);
     }
 
-    public reqGetLedG (state: boolean): void {
+    public easy () {
+        this.switchG = false; //this.tmp;
+    }
+    public reqLedG (): void {
 
         const req: iqrfApi.IqrfEmbedLedgGetRequest100 = {
-            mType: 'iqrfEmbedLedgGet',
+            mType: 'iqrfEmbedLedg_Get',
             data: {
                 msgId: 'sss',
                 req: {
-                    nAdr: 0,
-                    onOff: state
+                    nAdr: 0
                 }
             }
         };
