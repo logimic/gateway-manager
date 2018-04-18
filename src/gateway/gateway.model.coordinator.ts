@@ -46,7 +46,7 @@ export class Coordinator {
             }
         };
 
-        this.service.send(JSON.stringify(req, null, 2));
+        this.service.sendMessage(JSON.stringify(req, null, 2));
 
         // Update status
         window.setTimeout(() => this.reqLedG(), 20);
@@ -73,6 +73,6 @@ export class Coordinator {
             }
         };
 
-        this.service.send(JSON.stringify(req, null, 2));
+        this.service.sendMessage(JSON.stringify(req, null, 2));
     }
 }

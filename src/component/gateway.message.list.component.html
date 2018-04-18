@@ -14,15 +14,15 @@
             </thead>
         -->
             <tbody>
-                <tr *ngFor="let msg of model.msgArray; let i = index">
+                <tr *ngFor="let msg of service.msgArray; let i = index">
                       <!--  <td><p><span class="tableText">{{msg.json.mType}}</span></p></td> -->
                      <!--   <td><p><span class="tableText">{{msg.str}}</span></p></td> -->
                         <mat-expansion-panel>
                             <mat-expansion-panel-header>
                               <mat-panel-title><b>No:</b>&nbsp;{{i+1}}</mat-panel-title>
                     
-                              <mat-panel-description *ngIf="msg.resp"> <b>mType:</b>&nbsp;{{model.getMType(msg.req)}}</mat-panel-description>
-                              <mat-panel-description *ngIf="msg.resp"> <b>Status:</b>&nbsp;{{model.getStatus(msg.resp)}}</mat-panel-description>                              
+                              <mat-panel-description *ngIf="msg.resp"> <b>mType:</b>&nbsp;{{service.getMType(msg.req)}}</mat-panel-description>
+                              <mat-panel-description *ngIf="msg.resp"> <b>Status:</b>&nbsp;{{service.getStatus(msg.resp)}}</mat-panel-description>                              
 
                             </mat-expansion-panel-header>
                         

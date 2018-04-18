@@ -20,7 +20,7 @@ export class GatewayMsgPlainComponent {
 
     public mode = 0;
 
-    constructor(protected model: GatewayModel, fb: FormBuilder) {
+    constructor(protected service: GatewayService, fb: FormBuilder) {
         this.form = fb.group({
             'text': ''
           });
@@ -35,7 +35,7 @@ export class GatewayMsgPlainComponent {
         if (list.length > 0) {
             const msg = list[0];
 
-            this.model.sendMessage(list[0]);
+            this.service.sendMessage(list[0]);
         }
       }
 

@@ -11,13 +11,13 @@ import {MatTableModule} from '@angular/material';
 })
 export class GatewayMessageListComponent {
 
-    constructor(protected service: GatewayService, protected model: GatewayModel) {
+    constructor(protected service: GatewayService) {
 
     }
 
     OnClearMsgs () {
 
        // window.alert('cccc');
-       this.model.msgArray.length = 0;
+       this.service.msgArray.length = 0;
     }
 }

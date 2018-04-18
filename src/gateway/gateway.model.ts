@@ -22,7 +22,7 @@ export class Status  {
     public trajReady; // trajectory is loaded and has at least one segment
     public manTrajsOn = false;  // Sets visible manual trajs...
 }
-
+/*
 export interface JsonMsgData {
     msgId: string;
     timeout: number;
@@ -33,14 +33,9 @@ export interface JsonMsg {
     mType: string;
     data: JsonMsgData;
 }
-
+*/
 export interface IMessageList {
     messages: string [];
-}
-
-export class Msg {
-    req: string;
-    resp: string;
 }
 
 export interface CoordState {
@@ -82,7 +77,6 @@ export class GatewayModel  {
         valid: false
     };
 
-    msgArray: Msg[];
 
     public coordState: CoordState = {
         ledg: false,
@@ -92,7 +86,7 @@ export class GatewayModel  {
 
     public emitorCoordState$: EventEmitter<CoordState> = new EventEmitter();
 
-    constructor ( protected service: GatewayService) {
+    constructor (protected service: GatewayService) {
 
         this.coordinator =  new Coordinator(service);
 
@@ -100,14 +94,13 @@ export class GatewayModel  {
       //  let ff = {} as iqrfApi.CfgDaemonComponentRequest100;
       // ff.data.msgId = '----';
 
-        this.msgArray = new Array();
-
         service.emitorOnlineStatus$.subscribe( w => {
             this.status.onlineStatus = w;
         });
 
         service.emitorMessage$.subscribe( w => {
-            this.receivedMessage(w);
+            // this.receivedMessage(w);
+            this.parseIncomingMsg(w);
         });
 
         service.emitorCfg$.subscribe( w => {
@@ -126,16 +119,17 @@ export class GatewayModel  {
     public isReady() {
         return this.ready;
     }
-
+/*
     private OnSendMessage(data: any): void {
         this.service.send(data);
     }
-
+*/
+/*
     private OnMsgReceived(msg: Msg) {
 
     }
-
-    public getMType (msgStr: string): string {
+    */
+/* public getMType (msgStr: string): string {
         try {
             const mm: JsonMsg = JSON.parse(msgStr);
 
@@ -154,18 +148,20 @@ export class GatewayModel  {
             return 'not in message';
         }
     }
-
+*/
     /*
     * Converts JSON to string.
     */
+   /*
     public msgString (json: any): string {
         return JSON.stringify( json, null, 2);
     }
-
+*/
     /*
     *
     * This sends message to gateway.
     */
+   /*
     public sendMessage(msg: string) {
 
         try {
@@ -190,11 +186,12 @@ export class GatewayModel  {
             this.msgArray.push(m);
         }
      }
-
+*/
     /*
     *
     * This recieves message from gateway.
     */
+   /*
     public receivedMessage(msg: any) {
 
         let msgStr = '';
@@ -203,9 +200,6 @@ export class GatewayModel  {
             const mm = JSON.parse(msg.data);
             msgStr = msg.data;
 
-            /*
-            * Parse message.
-            */
             this.parseIncomingMsg(mm);
 
         }catch (e) {
@@ -228,7 +222,7 @@ export class GatewayModel  {
                 this.msgArray.push(m);
         }
     }
-
+*/
     private parseIncomingMsg (json: any) {
         if (json.mType === 'iqrfEmbedLedg_Get') {
             // const msg = json as iqrfApi.IqrfEmbedLedgGetResponse100;
