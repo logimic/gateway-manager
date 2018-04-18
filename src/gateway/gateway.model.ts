@@ -230,11 +230,11 @@ export class GatewayModel  {
     }
 
     private parseIncomingMsg (json: any) {
-        if (json.mType === 'IqrfEmbedLedgGet') {
-            const msg = json as iqrfApi.IqrfEmbedLedgGetResponse100;
+        if (json.mType === 'iqrfEmbedLedg_Get') {
+            // const msg = json as iqrfApi.IqrfEmbedLedgGetResponse100;
 
-            if (msg.data.rsp.nAdr === 0) {
-                this.coordinator.setData(msg);
+            if (json.data.rsp.nAdr === 0) {
+                this.coordinator.setData(json);
             }
         }
     }

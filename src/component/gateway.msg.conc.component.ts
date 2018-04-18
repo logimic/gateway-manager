@@ -34,17 +34,13 @@ export class GatewayMsgConcComponent {
     }
 
     OnLedG(selection): void {
-      //  window.alert('...set...');
-
         if (selection.checked === true) {
             this.model.coordinator.switchG = true;
         } else {
             this.model.coordinator.switchG = false;
         }
 
-          this.model.coordinator.setLedG(this.model.coordinator.switchG);
-
-          // this.device1 = this.model.coordinator.getLedG();
+        this.model.coordinator.setLedG(this.model.coordinator.switchG);
     }
 
     OnLedR(selection): void {

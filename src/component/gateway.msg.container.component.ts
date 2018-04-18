@@ -18,15 +18,8 @@ export class GatewayMsgContainerComponent {
 
     }
 
-
     OnControlModeClick(selection): void {
-
         this.mode = selection.value;
-
-       // window.alert('MODE: ' + this.mode);
-
-     //  let msg = '';
-
 
     }
 }

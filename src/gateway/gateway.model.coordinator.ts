@@ -23,17 +23,18 @@ export class Coordinator {
         return this.ledR;
     }
 
-    public setData (msg: any) {
+    public setData (json: any) {
 
-        switch (msg.kind) {
-            case 'iqrfApi.IqrfEmbedLedgGetResponse100':
-                this.ledR = msg.data.rsp.onOff;
-            break;
+        if (json.mType === 'iqrfEmbedLedg_Get') {
+            const msg = json as iqrfApi.IqrfEmbedLedgGetResponse100;
 
+            if (msg.data.rsp.nAdr === 0) {
+                this.ledG = msg.data.rsp.onOff;
+            }
         }
+
     }
     public setLedG (state: boolean): void {
-        /*
         const req: iqrfApi.IqrfEmbedLedgSetRequest100 = {
             mType: 'iqrfEmbedLedg_Set',
             data: {
@@ -45,14 +46,16 @@ export class Coordinator {
             }
         };
 
-        this.service.send(req);
+        this.service.send(JSON.stringify(req, null, 2));
 
         // Update status
         window.setTimeout(() => this.reqLedG(), 20);
-        */
+
+        /*
        this.switchG = state;
 
        window.setTimeout(() => this.easy(), 500);
+       */
     }
 
     public easy () {
@@ -70,6 +73,6 @@ export class Coordinator {
             }
         };
 
-        this.service.send(req);
+        this.service.send(JSON.stringify(req, null, 2));
     }
 }
