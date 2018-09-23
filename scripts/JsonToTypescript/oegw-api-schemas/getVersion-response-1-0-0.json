@@ -1,0 +1,44 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$id": "http://example.com/example.json",
+    "title":"getVersion-response",
+    "self": {
+        "vendor": "com.logimic",
+        "name": "getVersion-response",
+        "format": "jsonschema",
+        "version": "1-0-0"
+    },
+    "type": "object",
+    "properties": {
+        "mType": {
+            "type": "string",
+            "default": "getVersion",
+            "description": "Requests version of Open Edge Gateway server",
+            "enum": [
+                "getVersion"
+            ]
+        },
+        "msgId": {
+            "type": "string",
+            "description": "Message identification for binding request with response."
+        },
+        "rsp": {
+            "type": "object",
+            "properties": {
+                "version": {
+                    "type": "string",
+                    "default": "0-0-0",
+                    "description": "Version og Open Edge Gateway server software"
+                }
+            },
+            "required":[
+                "version"
+            ]
+        }
+    },
+    "required": [
+        "mType",
+        "msgId",
+        "rsp"
+    ]
+}

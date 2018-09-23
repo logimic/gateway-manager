@@ -1,5 +1,5 @@
 @echo off
-CD ./schemas
+CD ./iqrf-api-schemas
 for %%a in (*.json) do (
 json2ts %%a >> ..\iqrf-api.d.ts
 )

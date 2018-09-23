@@ -6,6 +6,7 @@ import { GatewayModel } from '../gateway/gateway.model';
 import { GatewayService } from '../gateway/gateway.service';
 import { GatewayStatusComponent} from '../component/gateway.status.component';
 import { GatewayCommandsComponent} from '../component/gateway.commands.component';
+import { GatewayScenarioComponent} from '../component/gateway.scenario.component';
 import { GatewayTitleComponent} from '../component/gateway.title.component';
 import { GatewayMsgPlainComponent} from '../component/gateway.msg.plain.component';
 import { GatewayMsgConcComponent} from '../component/gateway.msg.conc.component';
@@ -112,6 +113,7 @@ export class MaterialModule {}
   declarations: [
     AppComponent,
     GatewayCommandsComponent,
+    GatewayScenarioComponent,
     GatewayStatusComponent,
     GatewayTitleComponent,
     GatewayMsgPlainComponent,

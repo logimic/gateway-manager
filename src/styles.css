@@ -193,12 +193,26 @@ app-gateway-commands-component {
     background:  rgba(100, 100, 100, 0.5)
 }
 
+app-gateway-scenario-component {
+    position: absolute;
+    display: block;
+    top: 60px;
+    left: 310px;
+    right: 310px;
+    height: 320px;
+    /* width: 300px;    */
+    bottom: 5px;    
+    z-index: 3;
+    padding: 5px 5px 5px 5px;
+    background:  rgba(100, 100, 100, 0.5)
+}
+
 app-gateway-message-list-component {
     position: absolute;
     display: block;
-    top: 90px;
+    top: 385px;
     right: 310px;
-    /* height: 250px;*/
+    /*height: 500px;*/
     left: 310px;    
     bottom: 5px;    
     z-index: 3;
@@ -748,3 +762,5 @@ div.concIqrf {
     font-size:16px;
     overflow:hidden;
   }  
+
+ 

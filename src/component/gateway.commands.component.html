@@ -1,8 +1,18 @@
-<!--
 <div class="title">
-    Commands
+    Control
 </div>
--->
+
+<div class="content" style="margin-left: 5px; margin-top: 20px;">
+    <mat-form-field  class="selector-full-width">
+        <mat-select placeholder="Available scenarioss..." (change)="OnScriptSelect($event)" [(ngModel)]="this.mode">
+            
+            <mat-option *ngFor="let scenario of this.model.scenarioList.scenarios; let i = index" [value]="i">
+                {{ scenario.name }}
+            </mat-option>
+        
+        </mat-select>
+    </mat-form-field>
+</div>
 <!--
 <div class="title"></div>
 

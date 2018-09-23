@@ -1,0 +1,35 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$id": "http://example.com/example.json",
+    "title":"getScenarioList-request",
+    "self": {
+        "vendor": "com.logimic",
+        "name": "getScenarioList-request",
+        "format": "jsonschema",
+        "version": "1-0-0"
+    },
+    "type": "object",
+    "properties": {
+        "mType": {
+            "type": "string",
+            "default": "getScenarioList",
+            "description": "Message type",
+            "enum": [
+                "getScenarioList"
+            ]
+        },
+        "msgId": {
+            "type": "string",
+            "description": "Message identification for binding request with response."
+        },
+        "req": {
+            "type": "object",
+            "properties": {}
+        }
+    },
+    "required": [
+        "mType",
+        "msgId",
+        "req"
+    ]
+}

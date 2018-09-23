@@ -5,6 +5,9 @@ import { GatewayService } from './gateway.service';
 import { Observable } from 'rxjs/Rx';
 import { Coordinator } from './gateway.model.coordinator';
 import * as iqrfApi from './iqrf-api';
+import * as oegwApi from './oegw-api';
+import * as oegwThings from './oegw-things';
+import { debugOutputAstAsTypeScript } from '@angular/compiler';
 
 export interface ServerStatus {
     cncStatus: number;      // status cnc core
@@ -22,18 +25,7 @@ export class Status  {
     public trajReady; // trajectory is loaded and has at least one segment
     public manTrajsOn = false;  // Sets visible manual trajs...
 }
-/*
-export interface JsonMsgData {
-    msgId: string;
-    timeout: number;
-    status: number;
-}
 
-export interface JsonMsg {
-    mType: string;
-    data: JsonMsgData;
-}
-*/
 export interface IMessageList {
     messages: string [];
 }
@@ -53,8 +45,20 @@ export interface ConfigWS {
 @Injectable()
 export class GatewayModel  {
 
-    // Gateway Items...
+    // oegw API
+    // public DownloadScriptRequest100: oegwApi.DownloadScriptRequest100 = null;
+    //public scenarios: oegwApi.GatewayScenario100[];
+
+    // Gateway Things...
     public coordinator: Coordinator = null;
+
+    public scenarioList: oegwThings.OegwScenarioList = {
+        scenarios: [
+            {name: '999',
+            scenario: 'ssss'}
+            ],
+            activeScenario: ''
+    };
 
     public ready = false;
 
@@ -90,6 +94,10 @@ export class GatewayModel  {
 
         this.coordinator =  new Coordinator(service);
 
+      //  this.scenarioList = new Lists();
+     //   this.scenarioList.scenarios = new Array();
+     //   this.scenarioList.scenarios = new Array();
+
       //  const simpleObject = {} as iqrfApi.CfgDaemonComponentRequest100;
       //  let ff = {} as iqrfApi.CfgDaemonComponentRequest100;
       // ff.data.msgId = '----';
@@ -103,7 +111,7 @@ export class GatewayModel  {
             this.parseIncomingMsg(w);
         });
 
-        service.emitorCfg$.subscribe( w => {
+        service.emitorWsOegw$.subscribe( w => {
             this.cfg = w;
         });
 
@@ -114,10 +122,67 @@ export class GatewayModel  {
             this.ready = true;
         }, 500);
 
+        this.initScenarios();
     }
 
     public isReady() {
         return this.ready;
+    }
+
+    public initScenarios() {
+
+        this.scenarioList.scenarios.length = 0;
+
+        const scenario1: oegwThings.OegwScenario = {
+            name: 'script0.js',
+            scenario: `
+                oegw.script.make = function (param) {
+                param.output0.output = false;
+                param.output1.output = false;
+
+                if (param.FaceRecognition.faces.length > 0) {
+                    if (param.FaceRecognition.faces[0].maleProb < 0.5) {
+                        param.output0.output = true;
+                    }
+                    else {
+                        param.output1.output = true;
+                    }
+                }
+
+                return param;
+            };`
+        };
+
+        this.scenarioList.scenarios.push(scenario1);
+
+        const scenario2: oegwThings.OegwScenario = {
+            name: 'script2.js',
+            scenario: `
+            oegw.script.make = function (param) {
+
+                param.output0.output = false;
+                param.output1.output = false;
+
+                var len = param.FaceRecognition.faces.length;
+                if (len > 0) {
+                    for (var i = 0; i < len; i++) {
+                        param.output0.output = false;
+                        param.output1.output = true;
+                        if (param.FaceRecognition.faces[i].age < 18) {
+                            param.output0.output = true;
+                            param.output1.output = false;
+                            break;
+                        }
+                    }
+                }
+
+                return param;
+            };
+            `
+        };
+
+        this.scenarioList.scenarios.push(scenario2);
+
     }
 /*
     private OnSendMessage(data: any): void {

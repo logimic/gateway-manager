@@ -4,10 +4,11 @@ import { GatewayService } from '../gateway/gateway.service';
 import * as oegwApi from '../gateway/oegw-api';
 
 @Component({
-    selector: 'app-gateway-commands-component',
-    templateUrl: 'gateway.commands.component.html'
+    selector: 'app-gateway-scenario-component',
+    templateUrl: 'gateway.scenario.component.html',
+    styleUrls: ['gateway.scenario.component.css']
 })
-export class GatewayCommandsComponent {
+export class GatewayScenarioComponent {
 /*
     @Input()
     public P: Point = {x: 10, y: 20.6, z: 30};

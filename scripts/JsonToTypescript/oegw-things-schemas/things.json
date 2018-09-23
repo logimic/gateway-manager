@@ -1,0 +1,128 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$id": "http://example.com/example.json",
+    "self": {
+        "vendor": "com.logimic",
+        "name": "things",
+        "format": "jsonschema",
+        "version": "1-0-0"
+    },
+    "type": "object",
+    "properties": {
+        "FaceRecognition": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "default": "FaceRecognition",
+                    "enum": [
+                        "FaceRecognition"
+                    ]
+                },
+                "faces": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "label": {
+                                "type": "number",
+                                "default": "0",
+                                "description": "Name of face recognition item.."
+                            },
+                            "maleProb": {
+                                "type": "number",
+                                "default": "0",
+                                "description": "Probability that recognized item is male..."
+                            },
+                            "age": {
+                                "type": "number",
+                                "default": "0",
+                                "description": "Age of recognized man..."
+                            },
+                            "confidence": {
+                                "type": "number",
+                                "default": "0",
+                                "description": "Confidence"
+                            },
+                            "location": {
+                                "type": "object",
+                                "properties": {
+                                    "x": {
+                                        "type": "number",
+                                        "default": "0",
+                                        "description": "x-coordinate"
+                                    },
+                                    "y": {
+                                        "type": "number",
+                                        "default": "0",
+                                        "description": "y-coordinate"
+                                    },
+                                    "z": {
+                                        "type": "number",
+                                        "default": "0",
+                                        "description": "z-coordinate"
+                                    }
+                                }
+                            },
+                            "headPose": {
+                                "type": "object",
+                                "properties": {
+                                    "r": {
+                                        "type": "number",
+                                        "default": "0",
+                                        "description": "..."
+                                    },
+                                    "p": {
+                                        "type": "number",
+                                        "default": "0",
+                                        "description": "..."
+                                    },
+                                    "y": {
+                                        "type": "number",
+                                        "default": "0",
+                                        "description": "..."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "output0": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "default": "output0",
+                    "description": "Name of output."
+                },
+                "output": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Value of output."
+                }
+            }
+        },
+        "output1": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "default": "output1",
+                    "description": "Name of output."
+                },
+                "output": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Value of output."
+                }
+            }
+        }
+    },
+    "required": [
+        "mType",
+        "msgId",
+        "rsp"
+    ]
+}
