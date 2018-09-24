@@ -1,0 +1,50 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$id": "http://example.com/example.json",
+    "title":"uploadScript-response",
+    "self": {
+        "vendor": "com.logimic",
+        "name": "uploadScript-response",
+        "format": "jsonschema",
+        "version": "1-0-0"
+    },
+    "type": "object",
+    "properties": {
+        "mType": {
+            "type": "string",
+            "default": "uploadScript",
+            "description": "Message type.",
+            "enum": [
+                "uploadScript"
+            ]
+        },
+        "msgId": {
+            "type": "string",
+            "description": "Message identification for binding request with response."
+        },
+        "rsp": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "default": "none",
+                    "description": "Name of script."
+                },
+                "status": {
+                    "type": "number",
+                    "default": 0,
+                    "description": "Status of readign script."
+                }
+            },
+            "required": [
+                "name",
+                "status"
+            ]
+        }
+    },
+    "required": [
+        "mType",
+        "msgId",
+        "rsp"
+    ]
+}

@@ -5,35 +5,19 @@
 <div id="table-wrapper">
     <div id="table-scroll">
         <table>
-      <!--      
-            <thead>
-                <tr>
-                    <th><span class="text">Message</span></th> 
-                    <th><span class="text">JSON</span></th>
-                </tr>
-            </thead>
-        -->
             <tbody>
-                <tr *ngFor="let msg of model.msgArray; let i = index">
-                      <!--  <td><p><span class="tableText">{{msg.json.mType}}</span></p></td> -->
-                     <!--   <td><p><span class="tableText">{{msg.str}}</span></p></td> -->
+                <tr *ngFor="let msg of service.msgArray; let i = index">
                         <mat-expansion-panel>
                             <mat-expansion-panel-header>
                               <mat-panel-title><b>No:</b>&nbsp;{{i+1}}</mat-panel-title>
                     
-                              <mat-panel-description *ngIf="msg.resp"> <b>mType:</b>&nbsp;{{model.getMType(msg.req)}}</mat-panel-description>
-                              <mat-panel-description *ngIf="msg.resp"> <b>Status:</b>&nbsp;{{model.getStatus(msg.resp)}}</mat-panel-description>                              
+                              <mat-panel-description *ngIf="msg.resp"> <b>mType:</b>&nbsp;{{service.getMType(msg.req)}}</mat-panel-description>
+                              <mat-panel-description *ngIf="msg.resp"> <b>Status:</b>&nbsp;{{service.getStatus(msg.resp)}}</mat-panel-description>                              
 
                             </mat-expansion-panel-header>
                         
                             <p><font size="2"><b>request:</b> {{msg.req}}</font></p>                            
                             <p><font size="2"><b>response:</b>{{msg.resp}}</font></p>
-                        
-                            <!--
-                            <mat-form-field>
-                              <input matInput placeholder="Age">
-                            </mat-form-field>
-                        -->
                           </mat-expansion-panel>
                     </tr>
     

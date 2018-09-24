@@ -1,20 +1,54 @@
 <div class="title">
-    Message...
+    IQRF Adapter...
 </div>
-<!--
-<div class="content" style="margin-left: 5px; margin-top: 20px;">
-    <mat-form-field  class="selector-full-width">
-        <mat-select placeholder="Message modes..." (change)="OnControlModeClick($event)" [(ngModel)]="this.mode">
-            <mat-option *ngFor="let mode of this.modeList; let i = index" [value]="i">
-                {{ mode }}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
-</div> -->
 
-<div *ngIf="this.mode == 0">
-    <app-gateway-msg-plain-component></app-gateway-msg-plain-component>
+<div *ngIf="this.adapterReady">
+
+    <div class="row" style="padding:10px;">
+        <!-- Column -->
+        <div class="column left" style="padding:10px; background-color: rgb(49, 49, 153);">
+
+            <div *ngIf="this.selMessageMode === 'Plain message'">          
+                <div class="example-container" >  
+                    <form class="example-form" [formGroup]="form">      
+                        <mat-form-field class="example-full-width">
+                            <textarea matInput rows="15" placeholder="Enter JSON:" formControlName="text"></textarea>
+                        </mat-form-field>    
+                    </form>
+                </div>            
+            </div>        
+            <div *ngIf="this.selMessageMode === 'IQRF Coordinator'">
+                <app-gateway-msg-conc-component></app-gateway-msg-conc-component>
+            </div>        
+
+        </div>
+        <!-- Column -->
+        <div class="column right" style="padding:10px; background-color: rgb(49, 153, 118);">
+            <div class="content" style="margin-left: 5px; margin-top: 20px;">
+                <mat-radio-group class="example-radio-group" [(ngModel)]="this.selMessageMode">
+                    <mat-radio-button class="example-radio-button" *ngFor="let mMode of this.messageMode" [value]="mMode">
+                    {{mMode}}
+                    </mat-radio-button>
+                </mat-radio-group>        
+            </div>     
+            <div *ngIf="this.selMessageMode === 'Plain message'">
+                <div class="content" style="margin-left: 5px;">
+                    <mat-form-field  class="selector-full-width">
+                        <mat-select placeholder="Predefined messages" (change)="OnControlModeClick1($event)" [(ngModel)]="this.mode">
+                            <mat-option *ngFor="let msg of this.msgList.messages; let i = index" [value]="i">
+                                {{ msg }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>            
+
+                <button mat-button type="submit" (click)="submit()">Submit</button>
+                <button mat-button type="button" (click)="reset()" >Clear</button>            
+            </div>         
+        </div>
+    </div>
 </div>
-<div *ngIf="this.mode == 1">
-    <app-gateway-msg-conc-component></app-gateway-msg-conc-component>
+
+<div *ngIf="!this.adapterReady">
+<p>Cannoct connect adater...</p>
 </div>

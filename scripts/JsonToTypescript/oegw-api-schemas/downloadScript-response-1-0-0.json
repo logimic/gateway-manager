@@ -1,0 +1,55 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$id": "http://example.com/example.json",
+    "title": "downloadScript-response",
+    "self": {
+        "vendor": "com.logimic",
+        "name": "downloadScript-response",
+        "format": "jsonschema",
+        "version": "1-0-0"
+    },
+    "type": "object",
+    "properties": {
+        "mType": {
+            "type": "string",
+            "default": "downloadScript",
+            "description": "Message type.",
+            "enum": [
+                "downloadScript"
+            ]
+        },
+        "msgId": {
+            "type": "string",
+            "description": "Message identification for binding request with response."
+        },
+        "rsp": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "default": "none",
+                    "description": "Name of script."
+                },
+                "script": {
+                    "type": "string",
+                    "default": "empty",
+                    "description": "Java Script code."
+                },
+                "status": {
+                    "type": "number",
+                    "default": 0,
+                    "description": "Status of readign script."
+                }
+            },
+            "required": [
+                "name",
+                "status"
+            ]
+        }
+    },
+    "required": [
+        "mType",
+        "msgId",
+        "rsp"
+    ]
+}

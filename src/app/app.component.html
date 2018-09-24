@@ -10,12 +10,22 @@
     <app-gateway-status-component [onlineStatus]="this.model.status.onlineStatus" 
     [wsServer]="this.model.cfg.wsServer" [wsProtocol]="this.model.cfg.wsProtocol"></app-gateway-status-component>    
     <app-gateway-commands-component></app-gateway-commands-component>   
-    <!--<app-gateway-message-component></app-gateway-message-component> -->
-    <app-gateway-msg-container-component></app-gateway-msg-container-component>
+    
+    <div *ngIf="this.model.selCommDevice === 'Gateway'">
+            <app-gateway-scenario-component></app-gateway-scenario-component>  
+    </div>    
+    
+    <div *ngIf="this.model.selCommDevice === 'IQRF adapter'">
+        <app-gateway-msg-container-component></app-gateway-msg-container-component>
+    </div>
+
+    <div *ngIf="this.model.selCommDevice === 'Z-wave adapter'">
+        <app-gateway-zwave-adapter-component></app-gateway-zwave-adapter-component>
+    </div>    
+
     <app-gateway-message-list-component></app-gateway-message-list-component>
 </div> 
 
 <!--<app-cobalt-switch-mode></app-cobalt-switch-mode> -->
 <!-- <webglcanvas *ngIf="isReady()"></webglcanvas> -->
-
 

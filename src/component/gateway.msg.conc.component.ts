@@ -10,13 +10,13 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class GatewayMsgConcComponent {
 
-    ledg = true;
-    ledr = true;
+  //  ledg = true;
+//    ledr = true;
 
-    public coordState: CoordState = {
-        ledg: false,
-        ledr: false
-    };
+  //  public coordState: CoordState = {
+      //  ledg: false,
+     //   ledr: false
+  //  };
 
     public msgList: IMessageList = {
         messages: [ 'none', 'Concentrator Green LED-on', 'Concentrator Green LED-off']
@@ -25,19 +25,26 @@ export class GatewayMsgConcComponent {
     public mode = 1;
 
     constructor(protected model: GatewayModel) {
-
+/*
         model.emitorCoordState$.subscribe( w => {
             this.coordState = w;
             window.alert('ok');
         });
-
+*/
     }
 
     OnLedG(selection): void {
-        this.ledg = selection.checked;
+        if (selection.checked === true) {
+            this.model.coordinator.switchG = true;
+        } else {
+            this.model.coordinator.switchG = false;
+        }
+
+        this.model.coordinator.setLedG(this.model.coordinator.switchG);
     }
 
     OnLedR(selection): void {
-        this.ledr = selection.checked;
-     }
+      //  window.alert('...set...');
+       // this.ledr = selection.checked;
+    }
 }

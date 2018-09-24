@@ -8,10 +8,10 @@ import { GatewayModel} from '../gateway/gateway.model';
 export class GatewayStatusComponent {
 
     @Input()
-    public gwmVersion = 'v0.0.1';
+    public gwmVersion = 'v0.0.2';
 
     @Input()
-    public gwmLastupdate = 'Apr-2018';
+    public gwmLastupdate = 'Sept-2018';
 
     public apiVersion = '1-0-0';
 

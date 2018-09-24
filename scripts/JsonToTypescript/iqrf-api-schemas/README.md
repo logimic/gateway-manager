@@ -1,0 +1,1 @@
+Copy schema to this folder.
