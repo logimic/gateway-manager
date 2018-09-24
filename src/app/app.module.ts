@@ -11,6 +11,7 @@ import { GatewayTitleComponent} from '../component/gateway.title.component';
 import { GatewayMsgPlainComponent} from '../component/gateway.msg.plain.component';
 import { GatewayMsgConcComponent} from '../component/gateway.msg.conc.component';
 import { GatewayMsgContainerComponent} from '../component/gateway.msg.container.component';
+import { GatewayZwaveAdapterComponent} from '../component/gateway.zwave.adapter.component';
 import { GatewayMessageListComponent} from '../component/gateway.message.list.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -119,6 +120,7 @@ export class MaterialModule {}
     GatewayMsgPlainComponent,
     GatewayMsgConcComponent,
     GatewayMsgContainerComponent,
+    GatewayZwaveAdapterComponent,
     GatewayMessageListComponent
    // WebGlComponent,
    // ZoomDirectionComponent

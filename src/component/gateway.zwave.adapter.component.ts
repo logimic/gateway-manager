@@ -5,11 +5,11 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import * as iqrfApi from '../gateway/iqrf-api';
 
 @Component({
-    selector: 'app-gateway-msg-container-component',
-    templateUrl: 'gateway.msg.container.component.html',
-    styleUrls: ['gateway.msg.container.component.css']
+    selector: 'app-gateway-zwave-adapter-component',
+    templateUrl: 'gateway.zwave.adapter.component.html',
+    styleUrls: ['gateway.zwave.adapter.component.css']
 })
-export class GatewayMsgContainerComponent {
+export class GatewayZwaveAdapterComponent {
 
   //  public modeList: string[] = ['Plain message', 'IQRF Coordinator'];
   //  public mode = 0;

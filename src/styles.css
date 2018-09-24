@@ -171,10 +171,34 @@ app-gateway-message-component {
 app-gateway-msg-container-component {
     position: absolute; 
     display: block; 
+    /*
     top:5px;
     width:300px;
     left:5px;
     bottom:5px;
+    */
+    top: 60px;
+    left: 5px;
+    right: 310px;
+    height: 320px;    
+    padding: 5px 5px 5px 5px;
+    z-index: 1;
+    background: rgba(100, 100, 100, 0.5)
+}
+
+app-gateway-zwave-adapter-component {
+    position: absolute; 
+    display: block; 
+    /*
+    top:5px;
+    width:300px;
+    left:5px;
+    bottom:5px;
+    */
+    top: 60px;
+    left: 5px;
+    right: 310px;
+    height: 320px;    
     padding: 5px 5px 5px 5px;
     z-index: 1;
     background: rgba(100, 100, 100, 0.5)
@@ -197,11 +221,11 @@ app-gateway-scenario-component {
     position: absolute;
     display: block;
     top: 60px;
-    left: 310px;
+    left: 5px;
     right: 310px;
     height: 320px;
     /* width: 300px;    */
-    bottom: 5px;    
+    /* bottom: 5px;    */
     z-index: 3;
     padding: 5px 5px 5px 5px;
     background:  rgba(100, 100, 100, 0.5)
@@ -213,7 +237,7 @@ app-gateway-message-list-component {
     top: 385px;
     right: 310px;
     /*height: 500px;*/
-    left: 310px;    
+    left: 5px;    
     bottom: 5px;    
     z-index: 3;
     padding: 5px 5px 5px 5px;
@@ -763,4 +787,15 @@ div.concIqrf {
     overflow:hidden;
   }  
 
- 
+ .example-radio-group {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+
+.example-selected-value {
+  margin: 15px 0;
+}

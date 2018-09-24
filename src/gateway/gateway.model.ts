@@ -53,7 +53,7 @@ export class GatewayModel  {
     public coordinator: Coordinator = null;
 
     public scenarioList: oegwThings.OegwScenarioList = {
-        scenarios: [
+        list: [
             {name: '999',
             scenario: 'ssss'}
             ],
@@ -90,6 +90,12 @@ export class GatewayModel  {
 
     public emitorCoordState$: EventEmitter<CoordState> = new EventEmitter();
 
+
+    // Device for communication...
+    selCommDevice: string;
+    commDevice: string[] = ['Gateway', 'IQRF adapter', 'Z-wave adapter'];
+
+
     constructor (protected service: GatewayService) {
 
         this.coordinator =  new Coordinator(service);
@@ -117,6 +123,7 @@ export class GatewayModel  {
 
         // Set init state as control
         this.status.mode = 0;
+        this.selCommDevice = 'Gateway';
 
         setTimeout(() => {
             this.ready = true;
@@ -131,10 +138,10 @@ export class GatewayModel  {
 
     public initScenarios() {
 
-        this.scenarioList.scenarios.length = 0;
+        this.scenarioList.list.length = 0;
 
         const scenario1: oegwThings.OegwScenario = {
-            name: 'script0.js',
+            name: 'script1.js',
             scenario: `
                 oegw.script.make = function (param) {
                 param.output0.output = false;
@@ -153,7 +160,7 @@ export class GatewayModel  {
             };`
         };
 
-        this.scenarioList.scenarios.push(scenario1);
+        this.scenarioList.list.push(scenario1);
 
         const scenario2: oegwThings.OegwScenario = {
             name: 'script2.js',
@@ -181,7 +188,7 @@ export class GatewayModel  {
             `
         };
 
-        this.scenarioList.scenarios.push(scenario2);
+        this.scenarioList.list.push(scenario2);
 
     }
 /*

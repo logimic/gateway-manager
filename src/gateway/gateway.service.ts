@@ -45,6 +45,7 @@ export class GatewayService {
         this.connectionTimer(2000);
     }
 
+
     loadConfig() {
         const path = './assets/cfg/oegwServerConfig.json';
         this.http.get(path).subscribe(data => {

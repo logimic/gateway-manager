@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { GatewayModel} from '../gateway/gateway.model';
 import { GatewayService } from '../gateway/gateway.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import * as oegwApi from '../gateway/oegw-api';
 
 @Component({
@@ -19,18 +20,67 @@ export class GatewayScenarioComponent {
     @Input()
     public a: IF6 = {f1: 0, f2: 0, f3: 0, f4: 0, f5: 0, f6: 0};
 */
+    form: FormGroup;
+
     @Input()
     public Speed = 0;
 
     @Input()
     public onlineStatus = false;
 
-    constructor(protected service: GatewayService, protected model: GatewayModel) {
+    constructor(protected service: GatewayService, protected model: GatewayModel, fb: FormBuilder) {
+        this.form = fb.group({
+            'text': ''
+          });
+    }
+
+
+    submit(form) {
+
+        const list: any[] = [
+          this.form.controls['text'].value
+        ];
+
+        if (list.length > 0) {
+
+            if (list[0] !== '') {
+
+                const script = list[0];
+
+                const msg = {
+                    mCat: 'LoadScript',
+                    script: script
+                };
+
+                this.service.sendMessage(JSON.stringify(msg));
+            } else {
+                window.alert('Empty script...');
+            }
+        }
+      }
+
+    cancel(form) {
+        window.alert('cancel');
+    }
+
+    reset(form) {
+        //window.alert('reset');
+       this.form.controls['text'].setValue('');
+
     }
 
     OnScriptSelect(selection): void {
 
         const sel = selection.value;
+
+        if (sel >= 0 && sel < this.model.scenarioList.list.length) {
+            this.form.controls['text'].setValue(this.model.scenarioList.list[sel].scenario);
+         }
+
+      //  window.alert(selection.value);
+//        window.alert(this.model.scenarioList.list[selection.value].scenario);
+
+/*
 
         const msg = {
             mCat: 'LoadScript',
@@ -92,7 +142,7 @@ export class GatewayScenarioComponent {
         } else {
             this.service.sendMessage(JSON.stringify(msg2));
         }
-
+*/
 
       }
 }

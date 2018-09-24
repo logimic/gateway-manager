@@ -8,6 +8,7 @@ import * as oegwApi from '../gateway/oegw-api';
     templateUrl: 'gateway.commands.component.html'
 })
 export class GatewayCommandsComponent {
+
 /*
     @Input()
     public P: Point = {x: 10, y: 20.6, z: 30};
@@ -94,4 +95,16 @@ export class GatewayCommandsComponent {
 
 
       }
+
+    OnSelectCommDevice(e) {
+
+        //window.alert('aaa: ' + e.value);
+
+
+        if (e.value === 0) {
+
+
+        }
+
+    }
 }
