@@ -11,22 +11,25 @@ export class Msg {
 @Injectable()
 export class GatewayService {
 
-    public bbb = false;
+    public hostname = '';    
     private timerConnect;
     // Oegw config...
     public wsOegw: ConfigWS = {
         wsServer: '',
-        wsProtocol: '',
+        wsIP: '',
+        wsPort: '',
+        detectServer: false,
         valid: false
     };
 
     // Iqrf config...
     public wsIqrf: ConfigWS = {
         wsServer: '',
-        wsProtocol: '',
+        wsIP: '',
+        wsPort: '',
+        detectServer: false,
         valid: false
     };
-
     msgArray: Msg[];
 
     private connection: WebSocket = null;
@@ -39,6 +42,9 @@ export class GatewayService {
 
     constructor(protected http: Http) {
 
+        // Get local IP...
+        this.hostname = window.location.hostname;        
+
         this.msgArray = new Array();
 
         this.loadConfig();
@@ -49,13 +55,19 @@ export class GatewayService {
     loadConfig() {
         const path = './assets/cfg/oegwServerConfig.json';
         this.http.get(path).subscribe(data => {
-            this.wsOegw.wsServer = data.json().wsServer;
-            this.wsOegw.wsProtocol = data.json().wsProtocol;
+            this.wsOegw.wsIP = data.json().wsIP;
+            this.wsOegw.wsPort = data.json().wsPort;
+            this.wsOegw.detectServer = data.json().detectServer;
             this.wsOegw.valid = true;
 
+            if (this.wsOegw.detectServer) {
+              this.wsOegw.wsServer = 'ws://' + this.hostname + ':' + this.wsOegw.wsPort;  
+            } else {
+                this.wsOegw.wsServer = 'ws://' + this.wsOegw.wsIP + ':1341';
+            }
             this.emitorWsOegw$.emit(this.wsOegw);
         });
-
+/*
         const pathIqrf = './assets/cfg/iqrfServerConfig.json';
         this.http.get(path).subscribe(data => {
             this.wsIqrf.wsServer = data.json().wsServer;
@@ -64,6 +76,7 @@ export class GatewayService {
 
             this.emitorWsIqrf$.emit(this.wsIqrf);
         });
+        */
     }
 
     private connectionTimer(step: number) {

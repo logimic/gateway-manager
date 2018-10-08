@@ -1,0 +1,187 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$id": "http://example.com/example.json",
+    "title": "thingSpace",
+    "self": {
+        "vendor": "com.logimic",
+        "name": "thingSpace",
+        "format": "jsonschema",
+        "version": "1-0-0"
+    },
+    "type": "object",
+    "properties": {
+        "mType": {
+            "type": "string",
+            "default": "thingSpace",
+            "description": "Message type.",
+            "enum": [
+                "thingSpace"
+            ]
+        },
+        "data": {
+            "type": "object",
+            "properties": {
+                "binaryOutput": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "description": "Name of binary output.",
+                                "default": "undefined"
+                            },
+                            "output": {
+                                "type": "boolean",
+                                "description": "Current state of the output [True/False]",
+                                "default": true
+                            },
+                            "props": {}
+                        },
+                        "required": [
+                            "name",
+                            "output"
+                        ]
+                    }
+                },
+                "faceRecognition": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "default": "FaceRecognition",
+                                "enum": [
+                                    "FaceRecognition"
+                                ]
+                            },
+                            "faces": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "label": {
+                                            "type": "number",
+                                            "default": "0",
+                                            "description": "Name of face recognition item.."
+                                        },
+                                        "maleProb": {
+                                            "type": "number",
+                                            "default": "0",
+                                            "description": "Probability that recognized item is male..."
+                                        },
+                                        "age": {
+                                            "type": "number",
+                                            "default": "0",
+                                            "description": "Age of recognized man..."
+                                        },
+                                        "confidence": {
+                                            "type": "number",
+                                            "default": "0",
+                                            "description": "Confidence"
+                                        },
+                                        "location": {
+                                            "type": "object",
+                                            "properties": {
+                                                "x": {
+                                                    "type": "number",
+                                                    "default": "0",
+                                                    "description": "x-coordinate"
+                                                },
+                                                "y": {
+                                                    "type": "number",
+                                                    "default": "0",
+                                                    "description": "y-coordinate"
+                                                },
+                                                "z": {
+                                                    "type": "number",
+                                                    "default": "0",
+                                                    "description": "z-coordinate"
+                                                }
+                                            },
+                                            "required": [
+                                                "x",
+                                                "y",
+                                                "z"
+                                            ]
+                                        },
+                                        "headPose": {
+                                            "type": "object",
+                                            "properties": {
+                                                "r": {
+                                                    "type": "number",
+                                                    "default": "0",
+                                                    "description": "..."
+                                                },
+                                                "p": {
+                                                    "type": "number",
+                                                    "default": "0",
+                                                    "description": "..."
+                                                },
+                                                "y": {
+                                                    "type": "number",
+                                                    "default": "0",
+                                                    "description": "..."
+                                                }
+                                            },
+                                            "required": [
+                                                "r",
+                                                "p",
+                                                "y"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "label",
+                                        "maleProb",
+                                        "age",
+                                        "confidence",
+                                        "location",
+                                        "headPose"
+                                    ]
+                                }
+                            }
+                        },
+                        "required": [
+                            "name",
+                            "faces"
+                        ]
+                    }
+                },
+                "thermometer": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "description": "Name of thermometer.",
+                                "default": "undefined"
+                            },
+                            "temperature": {
+                                "type": "number",
+                                "description": "Value of thermometer.",
+                                "default": 0
+                            },
+                            "props": {}
+                        },
+                        "required": [
+                            "name",
+                            "value"
+                        ]
+                    }
+                }
+            },
+            "required": [
+                "binaryOutput",
+                "faceRecognition",
+                "thermometer"
+            ]
+        }
+    },
+    "required": [
+        "mType",
+        "data"
+    ]
+}

@@ -35,12 +35,20 @@ export interface CoordState {
     ledr: boolean;
 }
 
+/*
 export interface ConfigWS {
     wsServer: string;
     wsProtocol: string;
     valid: boolean;
 }
-
+*/
+export interface ConfigWS {
+    wsServer: string;
+    wsIP: string;
+    wsPort: string;
+    detectServer: boolean;
+    valid: boolean;
+}
 /* hold information transmitted by websocket*/
 @Injectable()
 export class GatewayModel  {
@@ -77,7 +85,9 @@ export class GatewayModel  {
 
     public cfg: ConfigWS = {
         wsServer: '-',
-        wsProtocol: '-',
+        wsIP: '-',
+        wsPort: '-',
+        detectServer: false,
         valid: false
     };
 

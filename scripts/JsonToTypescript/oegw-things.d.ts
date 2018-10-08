@@ -40,80 +40,89 @@ export interface OegwScenarioList {
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface Things {
-  FaceRecognition?: {
-    name?: "FaceRecognition";
-    faces?: {
+export interface ThingSpace {
+  /**
+   * Message type.
+   */
+  mType: "thingSpace";
+  data: {
+    binaryOutput: {
       /**
-       * Name of face recognition item..
+       * Name of binary output.
        */
-      label?: number;
+      name: string;
       /**
-       * Probability that recognized item is male...
+       * Current state of the output [True/False]
        */
-      maleProb?: number;
-      /**
-       * Age of recognized man...
-       */
-      age?: number;
-      /**
-       * Confidence
-       */
-      confidence?: number;
-      location?: {
-        /**
-         * x-coordinate
-         */
-        x?: number;
-        /**
-         * y-coordinate
-         */
-        y?: number;
-        /**
-         * z-coordinate
-         */
-        z?: number;
-        [k: string]: any;
-      };
-      headPose?: {
-        /**
-         * ...
-         */
-        r?: number;
-        /**
-         * ...
-         */
-        p?: number;
-        /**
-         * ...
-         */
-        y?: number;
-        [k: string]: any;
-      };
+      output: boolean;
+      props?: any;
       [k: string]: any;
     }[];
-    [k: string]: any;
-  };
-  output0?: {
-    /**
-     * Name of output.
-     */
-    name?: string;
-    /**
-     * Value of output.
-     */
-    output?: boolean;
-    [k: string]: any;
-  };
-  output1?: {
-    /**
-     * Name of output.
-     */
-    name?: string;
-    /**
-     * Value of output.
-     */
-    output?: boolean;
+    faceRecognition: {
+      name: "FaceRecognition";
+      faces: {
+        /**
+         * Name of face recognition item..
+         */
+        label: number;
+        /**
+         * Probability that recognized item is male...
+         */
+        maleProb: number;
+        /**
+         * Age of recognized man...
+         */
+        age: number;
+        /**
+         * Confidence
+         */
+        confidence: number;
+        location: {
+          /**
+           * x-coordinate
+           */
+          x: number;
+          /**
+           * y-coordinate
+           */
+          y: number;
+          /**
+           * z-coordinate
+           */
+          z: number;
+          [k: string]: any;
+        };
+        headPose: {
+          /**
+           * ...
+           */
+          r: number;
+          /**
+           * ...
+           */
+          p: number;
+          /**
+           * ...
+           */
+          y: number;
+          [k: string]: any;
+        };
+        [k: string]: any;
+      }[];
+      [k: string]: any;
+    }[];
+    thermometer: {
+      /**
+       * Name of thermometer.
+       */
+      name: string;
+      /**
+       * Value of thermometer.
+       */
+      temperature?: number;
+      props?: any;
+      [k: string]: any;
+    }[];
     [k: string]: any;
   };
   [k: string]: any;
