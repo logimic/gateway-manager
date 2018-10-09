@@ -25,8 +25,8 @@ Download executable for Win or Linux machines from [Releases](https://github.com
 
 ## 2. Run
 
-1. From [releases](https://github.com/logimic/gateway-dashboard/releases) download **www.zip** and unzip somewhere.
-2. Run local web server in unzipped **www** or in any superior folder.
+1. From [releases](https://github.com/logimic/gateway-dashboard/releases) download **www-gateway-manager.zip** and unzip somewhere.
+2. Run local web server in unzipped **www-gateway-manager** or in any superior folder.
     ```
     $ ws -p 8181
     ```
