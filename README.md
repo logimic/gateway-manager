@@ -1,20 +1,51 @@
 # Gateway Manager
 
-The tool for easy configuration of your IOT Gateway and end devices.
+![](./src/theme/screen.png)
 
-* [Available releases for Win and Lin](https://github.com/logimic/gateway-manager/releases)
+The tool for easy configuration of your Open Edge Gateway.
 
-**Supported gateways:**
+# A. Run as standalone
 
-1. IQRF Daemon Gateway V2.0
+Download executable for Win or Linux machines from [Releases](https://github.com/logimic/gateway-manager/releases).
 
-# Build from sources
+# B. Run via local web Server
 
-## Prerequisites
+## 1. Prerequisites
 
-* Node.js
-* npm
-* [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2. Latest recommended version for build is 1.4.3. Install:
+1. **npm & node.js**
+
+    How to install it is here: https://nodejs.org/en/
+
+2. **Local Web Server** https://www.npmjs.com/package/local-web-server
+
+    Install:
+    ```
+    $ npm install -g local-web-server
+    ```
+
+## 2. Run
+
+1. From [releases](https://github.com/logimic/gateway-dashboard/releases) download **www.zip** and unzip somewhere.
+2. Run local web server in unzipped **www** or in any superior folder.
+    ```
+    $ ws -p 8181
+    ```
+    * The _8181_ number is port specification.
+    * Then see command line displaying serving IP:
+    ```
+    Serving at http://192.168.1.228:8181
+    ```
+3. Open Web Browser on local or any other network computer and navigate to the serving address.
+
+# C. Build from sources
+
+## 1. Prerequisites
+
+1. **npm & node.js**
+
+    How to install it is here: https://nodejs.org/en/
+
+2. [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2. Latest recommended version for build is 1.4.3. Install:
 ```
 npm uninstall -g @angular/cli
 npm cache clean
@@ -22,7 +53,7 @@ npm cache clean
 npm install -g @angular/cli@1.4.3
 ```
 
-## Building after pulling from Github
+## 2. Building after pulling from Github
 
 1. Open terminal/command line and go to main folder.
 2. Install local packages from command line.
@@ -33,26 +64,8 @@ npm install --save-dev @angular/cli@1.4.3
 npm install
 ```
 
-## Apply fix
 
-1. Update file **..\gateway-manager\node_modules\\@types\three\three-core.d.ts**
-2. Add following code at the end of class:
-```
-export class Camera extends Object3D {
-  ...
-
-  //Fix
-  aspect: number;
-
-  updateProjectionMatrix(): void;
-}
-```
-
-## Run via Web Browser
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Run via Electron
+## 3. Run via Electron
 Inspired by [this page..](http://www.blog.bdauria.com/?p=806)
 
 1. Install Electron
@@ -153,7 +166,7 @@ $ ng build
 $ npm run electron
 ```
 
-## Deployment via Electron
+## 4. Deployment via Electron
 
 This uses [electron-packager](https://github.com/electron-userland/electron-packager) and creates standalone app runnable on many operating systems.
 
@@ -172,6 +185,6 @@ electron-packager ./ --all
 
 
 
-## Further help
+## 5. Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

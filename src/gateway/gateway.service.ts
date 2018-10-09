@@ -1,6 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { ServerStatus, ConfigWS } from './gateway.model';
+import { ServerStatus, ConfigWS  } from './gateway.model';
 import { Http } from '@angular/http';
+import * as oegwThings from './oegw-things';
 
 export class Msg {
     req: string;
@@ -11,7 +12,7 @@ export class Msg {
 @Injectable()
 export class GatewayService {
 
-    public hostname = '';    
+    public hostname = '';
     private timerConnect;
     // Oegw config...
     public wsOegw: ConfigWS = {
@@ -30,6 +31,10 @@ export class GatewayService {
         detectServer: false,
         valid: false
     };
+
+    public t: string [];
+    public listDone = false;
+
     msgArray: Msg[];
 
     private connection: WebSocket = null;
@@ -39,15 +44,17 @@ export class GatewayService {
     public emitorMessage$: EventEmitter<any> = new EventEmitter();
     public emitorWsOegw$: EventEmitter<ConfigWS> = new EventEmitter();
     public emitorWsIqrf$: EventEmitter<ConfigWS> = new EventEmitter();
+    public emitorScenario$: EventEmitter<oegwThings.OegwScenario> = new EventEmitter();
 
     constructor(protected http: Http) {
 
         // Get local IP...
-        this.hostname = window.location.hostname;        
+        this.hostname = window.location.hostname;
 
         this.msgArray = new Array();
 
         this.loadConfig();
+        this.loadScenarios();
         this.connectionTimer(2000);
     }
 
@@ -61,22 +68,39 @@ export class GatewayService {
             this.wsOegw.valid = true;
 
             if (this.wsOegw.detectServer) {
-              this.wsOegw.wsServer = 'ws://' + this.hostname + ':' + this.wsOegw.wsPort;  
+                this.wsOegw.wsServer = 'ws://' + this.hostname + ':' + this.wsOegw.wsPort;
             } else {
                 this.wsOegw.wsServer = 'ws://' + this.wsOegw.wsIP + ':1341';
             }
+
             this.emitorWsOegw$.emit(this.wsOegw);
         });
-/*
-        const pathIqrf = './assets/cfg/iqrfServerConfig.json';
-        this.http.get(path).subscribe(data => {
-            this.wsIqrf.wsServer = data.json().wsServer;
-            this.wsIqrf.wsProtocol = data.json().wsProtocol;
-            this.wsIqrf.valid = true;
+    }
 
-            this.emitorWsIqrf$.emit(this.wsIqrf);
+    loadScenarios() {
+        const path = './assets/scripts/list.json';
+        this.http.get(path).subscribe(data => {
+            this.t = data.json().list;
+
+            this.loadScenarioFile();
         });
-        */
+    }
+
+    loadScenarioFile() {
+
+        for (const fileName of this.t) {
+            const pathFile = './assets/scripts/' + fileName;
+
+            this.http.get(pathFile).subscribe(data => {
+
+                const sc: oegwThings.OegwScenario = {
+                    name: fileName,
+                    scenario: data.text()
+                };
+
+                this.emitorScenario$.emit(sc);
+            });
+        }
     }
 
     private connectionTimer(step: number) {
@@ -161,9 +185,10 @@ export class GatewayService {
 
         const self = this;
         let msgStr = '';
+        let mm;
 
         try {
-            const mm = JSON.parse(msg.data);
+            mm = JSON.parse(msg.data);
             msgStr = msg.data;
 
             self.emitorMessage$.emit(mm);
@@ -172,20 +197,22 @@ export class GatewayService {
             msgStr = '' + msg.data;
         }
 
-        if (this.msgArray.length > 0) {
-            const lastResp = this.msgArray[this.msgArray.length - 1].resp;
+        if (mm.mType !== 'thingSpace') {
+            if (this.msgArray.length > 0) {
+                const lastResp = this.msgArray[this.msgArray.length - 1].resp;
 
-            if (lastResp === undefined) {
-                this.msgArray[this.msgArray.length - 1].resp = msgStr;
+                if (lastResp === undefined) {
+                    this.msgArray[this.msgArray.length - 1].resp = msgStr;
+                } else {
+                    const m = new Msg();
+                    m.resp = msgStr;
+                    this.msgArray.push(m);
+                }
             } else {
-                const m = new Msg();
-                m.resp = msgStr;
-                this.msgArray.push(m);
+                    const m = new Msg();
+                    m.resp = msgStr;
+                    this.msgArray.push(m);
             }
-        } else {
-                const m = new Msg();
-                m.resp = msgStr;
-                this.msgArray.push(m);
         }
     }
 
